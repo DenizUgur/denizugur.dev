@@ -1,0 +1,45 @@
+body {
+    background-color: #202020;
+    background-image: radial-gradient(circle at 50% 50%, #202020 60%, #101010);
+    display: -webkit-flex;
+    -webkit-justify-content: center;
+    -webkit-align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    padding: 16px;
+    position: absolute;
+    margin: 0px auto;
+    width: 520px;
+    height: 180px;
+    top: 50%;
+    left: 50%;
+    margin: -100px 0 0 -260px;
+    -webkit-box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.75);
+    border-radius: 4px;
+    background-color: #333;
+    font-family: 'Roboto', sans-serif;
+    display: -webkit-flex;
+    -webkit-justify-content: center;
+    -webkit-align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('Roboto-Thin.ttf');
+}
+
+h1 {
+    font-size: 40px;
+    color: #fff;
+    font-family: Roboto, sans-serif;
+    text-align: center;
+}
