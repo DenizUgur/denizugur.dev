@@ -1,56 +1,50 @@
 <!DOCTYPE HTML>
 <!--
-	Identity by HTML5 UP
+	Aerial by HTML5 UP
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
 <html>
 	<head>
-		<title>Deniz Uğur</title>
+		<title>Aerial by HTML5 UP</title>
 		<meta charset="utf-8" />
-        <link rel="icon" type="image/png" href="images/icon.png" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<!--[if lte IE 8]><script src="assets/js/html5shiv.js"></script><![endif]-->
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
 		<link rel="stylesheet" href="assets/css/main.css" />
-		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
 		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
 	</head>
-	<body class="is-loading">
+	<body class="loading">
+		<div id="wrapper">
+			<div id="bg"></div>
+			<div id="overlay"></div>
+			<div id="main">
 
-		<!-- Wrapper -->
-			<div id="wrapper">
-
-				<!-- Main -->
-					<section id="main">
-						<header>
-							<span class="avatar"><img src="images/avatar.jpg" alt="" /></span>
-							<h1>Deniz Uğur</h1>
-							<p>Android Developer</p>
-						</header>
-						<footer>
-							<ul class="icons">
-								<li><a href="//github.com/DenizUgur" class="fa-github">Twitter</a></li>
+				<!-- Header -->
+					<header id="header">
+						<h1>Deniz Uğur</h1>
+						<p>Landscape Photographer &nbsp;&bull;&nbsp; Ultimate Skier &nbsp;&bull;&nbsp; Astronomy Freak</p>
+						<nav>
+							<ul>
+								<li><a href="//www.instagram.com/denizdaking/" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+								<li><a href="//github.com/DenizUgur" class="icon fa-github"><span class="label">Github</span></a></li>
+								<li><a href="mailto:deniz343@gmail.com" class="icon fa-envelope-o"><span class="label">Email</span></a></li>
 							</ul>
-						</footer>
-					</section>
+						</nav>
+					</header>
 
 				<!-- Footer -->
 					<footer id="footer">
-						<ul class="copyright">
-							<li>&copy; Deniz Uğur</li><li>Design: <a href="//html5up.net">HTML5 UP</a></li>
-						</ul>
+						<span class="copyright">&copy; Deniz Uğur. Design: <a href="//html5up.net">HTML5 UP</a>.</span>
 					</footer>
 
 			</div>
-
-		<!-- Scripts -->
-			<!--[if lte IE 8]><script src="assets/js/respond.min.js"></script><![endif]-->
-			<script>
-				if ('addEventListener' in window) {
-					window.addEventListener('load', function() { document.body.className = document.body.className.replace(/\bis-loading\b/, ''); });
-					document.body.className += (navigator.userAgent.match(/(MSIE|rv:11\.0)/) ? ' is-ie' : '');
-				}
-			</script>
+		</div>
+		<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+		<script>
+			window.onload = function() { document.body.className = ''; }
+			window.ontouchmove = function() { return false; }
+			window.onorientationchange = function() { document.body.scrollTop = 0; }
+		</script>
 	</body>
 </html>
