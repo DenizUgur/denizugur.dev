@@ -302,8 +302,6 @@
             var hash = window.location.hash;
             $(hash).trigger("click");
         }
-        
-        if (skel.vars.mobile) Materialize.toast('Click on a image to open it up', 3000);
 
     });
 
