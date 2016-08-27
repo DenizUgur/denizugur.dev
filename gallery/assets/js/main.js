@@ -504,8 +504,8 @@ var main = (function ($) {
             window.setTimeout(function () {
 
                 // Show first slide if xsmall isn't active or it just deactivated.
-                skel.on('-xsmall !xsmall', function () {
-                    _.hide();
+                //skel.on('-xsmall !xsmall', function () {
+                    _.toggle();
 
                     if (_.current === null) {
                         var direct_id = window.location.hash.split('#')[1];
@@ -517,7 +517,7 @@ var main = (function ($) {
                             _.switchTo(0, true);
                         }
                     }
-                });
+                //});
             }, 100);
         },
 
