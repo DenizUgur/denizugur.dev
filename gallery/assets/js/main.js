@@ -506,7 +506,7 @@ var main = (function ($) {
                 skel.on('-xsmall !xsmall', function () {
 
                     if (_.current === null)
-                        _.switchTo(0, true);
+                        _.switchTo(0, false);
                     
                 });
 
