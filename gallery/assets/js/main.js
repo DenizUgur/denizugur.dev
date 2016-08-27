@@ -23,7 +23,7 @@ var main = (function ($) {
             layoutDuration: 750,
 
             // Thumbnails per "row" (must match "misc.thumbnails-per-row" in _vars.scss).
-            thumbnailsPerRow: 1,
+            thumbnailsPerRow: 2,
 
             // Side of main wrapper (must match "misc.main-side" in _vars.scss).
             mainSide: 'right'
@@ -500,6 +500,8 @@ var main = (function ($) {
             _.initViewer();
             _.initEvents();
 
+            _.hide();
+
             // Initial slide.
             window.setTimeout(function () {
 
@@ -507,20 +509,17 @@ var main = (function ($) {
                 skel.on('-xsmall !xsmall', function () {
 
                     if (_.current === null) {
-                        if (window.location.hash) {
-                            var direct_id = window.location.hash.split('_')[1];
-                            var index = _.slides.findIndex(s => s.id == direct_id);
-                            
+                        var direct_id = window.location.hash.split('#')[1];
+                        var index = _.slides.findIndex(s => s.id == direct_id);
+
+                        if (!(index == -1)) {
                             _.switchTo(index, true);
                         } else {
                             _.switchTo(0, true);
                         }
-                        
                     }
                 });
-
             }, 100);
-
         },
 
         /**
@@ -550,6 +549,9 @@ var main = (function ($) {
 
             // Update current.
             _.current = index;
+
+            // Update hash.
+            window.location.hash = newSlide.id;
 
             // Deactivate old slide (if there is one).
             if (oldSlide) {
@@ -590,23 +592,23 @@ var main = (function ($) {
 
                         // Wait for it to load.
                         $('<img src="' + newSlide.url + '" />').on('load', function () {
-                            window.setTimeout(function() {
-
-                            // Set background image.
-                            newSlide.$slideImage
-                                .css('background-image', 'url(' + newSlide.url + ')');
-
-                            // Mark as loaded.
-                            newSlide.loaded = true;
-                            newSlide.$slide.removeClass('loading');
-
-                            // Mark as active.
-                            newSlide.$slide.addClass('active');
-
-                            // Unlock.
                             window.setTimeout(function () {
-                                _.locked = false;
-                            }, 100);
+
+                                // Set background image.
+                                newSlide.$slideImage
+                                    .css('background-image', 'url(' + newSlide.url + ')');
+
+                                // Mark as loaded.
+                                newSlide.loaded = true;
+                                newSlide.$slide.removeClass('loading');
+
+                                // Mark as active.
+                                newSlide.$slide.addClass('active');
+
+                                // Unlock.
+                                window.setTimeout(function () {
+                                    _.locked = false;
+                                }, 100);
 
                             }, 1000);
                         });
