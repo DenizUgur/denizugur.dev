@@ -504,20 +504,19 @@ var main = (function ($) {
             window.setTimeout(function () {
 
                 // Show first slide if xsmall isn't active or it just deactivated.
-                //skel.on('-xsmall !xsmall', function () {
-                    _.toggle();
+                if (_.current === null) {
+                    var direct_id = window.location.hash.split('#')[1];
+                    var index = _.slides.findIndex(s => s.id == direct_id);
 
-                    if (_.current === null) {
-                        var direct_id = window.location.hash.split('#')[1];
-                        var index = _.slides.findIndex(s => s.id == direct_id);
-
-                        if (!(index == -1)) {
-                            _.switchTo(index, true);
-                        } else {
+                    if (!(index == -1)) {
+                        _.switchTo(index, true);
+                        _.hide();
+                    } else {
+                        skel.on('-xsmall !xsmall', function () {
                             _.switchTo(0, true);
-                        }
+                        });
                     }
-                //});
+                }
             }, 100);
         },
 
@@ -569,7 +568,6 @@ var main = (function ($) {
             // Thumbnail.
             newSlide.$parent
                 .addClass('active')
-                .addClass('loading')
                 .focus();
 
             // Slide.
