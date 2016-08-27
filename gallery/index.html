@@ -1,6 +1,6 @@
 <!DOCTYPE HTML>
 <!--
-	Multiverse by HTML5 UP
+	Lens by HTML5 UP
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
@@ -10,47 +10,61 @@
     <title>Gallery</title>
     <link rel="icon" href="../images/icon.png">
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
     <link rel="stylesheet" href="assets/css/main.css" />
-    <!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
     <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+    <!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+    <link rel="stylesheet" href="assets/tooltip/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="assets/tooltip/bootstrap.min.css">
+    <noscript>
+        <link rel="stylesheet" href="assets/css/noscript.css" />
+    </noscript>
 </head>
 
-<body>
+<body class="is-loading-0 is-loading-1 is-loading-2">
 
-    <!-- Wrapper -->
-    <div id="wrapper">
+    <!-- Main -->
+    <div id="main">
 
         <!-- Header -->
         <header id="header">
-            <h1><a href="index.html"><strong>Gallery</strong> of Deniz daKing</a></h1>
-            <nav>
-                <ul>
-                    <li><a>&copy; Deniz Ugur</a></li>
-                </ul>
-            </nav>
+            <h1>Deniz daKing</h1>
+            <p>Here you can find some select photos of my portfolio</p>
+            <ul class="icons">
+                <li><a href="//www.instagram.com/denizdaking" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+            </ul>
         </header>
 
-        <!-- Main -->
-        <div id="main">
-            <article class="thumb">
-                <a id="2940" href="images/fulls/IMG_2940.jpg" class="image"><img src="images/thumbs/IMG_2940.jpg" alt="" /></a>
+        <!-- Thumbnail -->
+        <section id="thumbnails">
+            <article>
+                <a id="2940" class="thumbnail" href="images/fulls/IMG_2940.jpg" data-position="left center">
+                    <img src="images/thumbs/IMG_2940.jpg" alt="" />
+                </a>
                 <h2>Serenity</h2>
                 <p>Click <a href="images/fulls/IMG_2940.jpg" download>here</a> to save this image 
-                    or you can view it from <a href="//www.instagram.com/p/BJVzsMbANwi">instagram</a></p>
+                    or you can view it from <a href="//www.instagram.com/p/BJVzsMbANwi" target="_blank">instagram</a></p>
             </article>
-        </div>
+        </section>
+
+        <!-- Footer -->
+        <footer id="footer">
+            <ul class="copyright">
+                <li>&copy; Deniz Uğur.</li>
+                <li>Design: <a href="http://html5up.net">HTML5 UP</a>.</li>
+            </ul>
+        </footer>
+
     </div>
 
     <!-- Scripts -->
     <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/jquery.poptrox.min.js"></script>
     <script src="assets/js/skel.min.js"></script>
-    <script src="assets/js/util.js"></script>
     <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
     <script src="assets/js/main.js"></script>
     <script src="assets/js/enhancment.js"></script>
+    <script src="assets/tooltip/bootstrap.min.js"></script>
 </body>
 
 </html>
