@@ -569,6 +569,7 @@ var main = (function ($) {
             // Thumbnail.
             newSlide.$parent
                 .addClass('active')
+                .addClass('loading')
                 .focus();
 
             // Slide.
