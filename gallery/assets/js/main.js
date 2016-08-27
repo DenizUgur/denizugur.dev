@@ -511,6 +511,8 @@ var main = (function ($) {
                     if (_.current === null) {
                         var direct_id = window.location.hash.split('#')[1];
                         var index = _.slides.findIndex(s => s.id == direct_id);
+                        
+                        alert(index);
 
                         if (!(index == -1)) {
                             _.switchTo(index, true);
