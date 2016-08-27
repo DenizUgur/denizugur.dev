@@ -506,7 +506,7 @@ var main = (function ($) {
                 skel.on('-xsmall !xsmall', function () {
 
                     if (_.current === null)
-                        _.switchTo(0, false);
+                        _.switchTo(0, true);
                     
                 });
 
@@ -581,7 +581,7 @@ var main = (function ($) {
 
                         // Wait for it to load.
                         $('<img src="' + newSlide.url + '" />').on('load', function () {
-                            //window.setTimeout(function() {
+                            window.setTimeout(function() {
 
                             // Set background image.
                             newSlide.$slideImage
@@ -599,7 +599,7 @@ var main = (function ($) {
                                 _.locked = false;
                             }, 100);
 
-                            //}, 1000);
+                            }, 1000);
                         });
 
                     }, 100);
