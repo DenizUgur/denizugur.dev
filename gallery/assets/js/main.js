@@ -500,19 +500,16 @@ var main = (function ($) {
             _.initViewer();
             _.initEvents();
 
-            _.hide();
-
             // Initial slide.
             window.setTimeout(function () {
 
                 // Show first slide if xsmall isn't active or it just deactivated.
                 skel.on('-xsmall !xsmall', function () {
+                    _.hide();
 
                     if (_.current === null) {
                         var direct_id = window.location.hash.split('#')[1];
                         var index = _.slides.findIndex(s => s.id == direct_id);
-                        
-                        alert(index);
 
                         if (!(index == -1)) {
                             _.switchTo(index, true);
