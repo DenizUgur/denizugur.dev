@@ -420,7 +420,8 @@ var main = (function ($) {
                         $slideImage: null,
                         $slideCaption: null,
                         url: $thumbnail.attr('href'),
-                        loaded: false
+                        loaded: false,
+                        id: $thumbnail.attr("id")
                     };
 
                     // Parent.
@@ -505,9 +506,17 @@ var main = (function ($) {
                 // Show first slide if xsmall isn't active or it just deactivated.
                 skel.on('-xsmall !xsmall', function () {
 
-                    if (_.current === null)
-                        _.switchTo(0, true);
-                    
+                    if (_.current === null) {
+                        if (window.location.hash) {
+                            var direct_id = window.location.hash.split('_')[1];
+                            var index = _.slides.findIndex(s => s.id == direct_id);
+                            
+                            _.switchTo(index, true);
+                        } else {
+                            _.switchTo(0, true);
+                        }
+                        
+                    }
                 });
 
             }, 100);
