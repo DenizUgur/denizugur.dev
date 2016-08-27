@@ -300,7 +300,9 @@
         // Was this a direct link?
         if (window.location.hash) {
             var hash = window.location.hash;
-            $(hash).trigger("click");
+            $("img").on("load", function() {
+                $(hash).trigger("click");
+            });
         }
 
     });
