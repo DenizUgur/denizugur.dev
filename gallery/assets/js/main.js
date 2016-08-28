@@ -595,7 +595,7 @@ var main = (function ($) {
                                 // Set background image.
                                 newSlide.$slideImage
                                     .css('background-image', 'url(' + newSlide.url + ')');
-
+                                
                                 // Mark as loaded.
                                 newSlide.loaded = true;
                                 newSlide.$slide.removeClass('loading');
