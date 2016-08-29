@@ -506,7 +506,7 @@ var main = (function ($) {
                 // Show first slide if xsmall isn't active or it just deactivated.
                 if (_.current === null) {
                     var direct_id = window.location.hash.split('#')[1];
-                    var index = _.slides.findIndex(s => s.id == direct_id);
+                    var index = _.slides.map(function(e) { return e.id; }).indexOf(direct_id);
 
                     if (!(index == -1)) {
                         _.switchTo(index, true);
