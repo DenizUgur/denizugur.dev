@@ -1,3 +1,4 @@
+// Credits to: https://codepen.io/loktar00/pen/Jdwug
 (function () {
     var requestAnimationFrame =
         window.requestAnimationFrame ||
@@ -11,16 +12,14 @@
 })();
 
 // Terrain stuff.
-var terrain = document.getElementById("terCanvas"),
-    background = document.getElementById("bgCanvas"),
-    terCtx = terrain.getContext("2d"),
+var background = document.getElementById("bgCanvas"),
     bgCtx = background.getContext("2d"),
     width = window.innerWidth,
     height = document.body.offsetHeight;
 height < 400 ? (height = 400) : height;
 
-terrain.width = background.width = width;
-terrain.height = background.height = height;
+background.width = width;
+background.height = height;
 
 // Some random points
 var points = [],
@@ -40,22 +39,6 @@ for (var i = 1; i < power; i *= 2) {
     }
     displacement *= 0.6;
 }
-
-// draw the terrain
-terCtx.beginPath();
-
-for (var i = 0; i <= width; i++) {
-    if (i === 0) {
-        terCtx.moveTo(0, points[0]);
-    } else if (points[i] !== undefined) {
-        terCtx.lineTo(i, points[i]);
-    }
-}
-
-terCtx.lineTo(width, terrain.height);
-terCtx.lineTo(0, terrain.height);
-terCtx.lineTo(0, points[0]);
-terCtx.fill();
 
 // Second canvas used for the stars
 bgCtx.fillStyle = "#05004c";
