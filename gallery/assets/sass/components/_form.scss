@@ -1,9 +1,5 @@
-@import '../libs/vars';
-@import '../libs/functions';
-@import '../libs/mixins';
-
 ///
-/// Lens by HTML5 UP
+/// Multiverse by HTML5 UP
 /// html5up.net | @ajlkn
 /// Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 ///
@@ -12,29 +8,64 @@
 
 	form {
 		margin: 0 0 _size(element-margin) 0;
+
+		.field {
+			margin: 0 0 (_size(element-margin) * 0.65) 0;
+
+			&.half {
+				float: left;
+				padding: 0 0 0 (_size(element-margin) * 0.325);
+				width: 50%;
+
+				&.first {
+					padding: 0 (_size(element-margin) * 0.325) 0 0;
+				}
+			}
+		}
+
+		> .actions {
+			margin: (_size(element-margin) * 0.75) 0 0 0 !important;
+		}
+
+		@include breakpoint(small) {
+			.field {
+				&.half {
+					float: none;
+					padding: 0;
+					width: 100%;
+
+					&.first {
+						padding: 0;
+					}
+				}
+			}
+		}
 	}
 
 	label {
 		color: _palette(fg-bold);
 		display: block;
 		font-size: 0.9em;
-		font-weight: _font(weight);
+		font-weight: _font(weight-bold);
 		margin: 0 0 (_size(element-margin) * 0.5) 0;
 	}
 
 	input[type="text"],
 	input[type="password"],
 	input[type="email"],
+	input[type="tel"],
+	input[type="search"],
+	input[type="url"],
 	select,
 	textarea {
 		@include vendor('appearance', 'none');
-		background-color: transparent;
-		border-radius: _size(border-radius);
-		border: solid _size(border-width) _palette(border);
-		color: inherit;
+		background: _palette(border-bg);
+		border: 0;
+		border-radius: 0;
+		color: _palette(fg);
 		display: block;
 		outline: 0;
-		padding: 0 0.75em;
+		padding: 0 1em;
 		text-decoration: none;
 		width: 100%;
 
@@ -43,7 +74,7 @@
 		}
 
 		&:focus {
-			border-color: _palette(accent);
+			box-shadow: inset 0 0 0 2px _palette(accent1);
 		}
 	}
 
@@ -54,7 +85,7 @@
 
 		&:before {
 			color: _palette(border);
-			content: '\f107';
+			content: '\f078';
 			display: block;
 			height: _size(element-height);
 			line-height: _size(element-height);
@@ -74,6 +105,9 @@
 	input[type="text"],
 	input[type="password"],
 	input[type="email"],
+	input[type="tel"],
+	input[type="search"],
+	input[type="url"],
 	select {
 		height: _size(element-height);
 	}
@@ -99,15 +133,12 @@
 			display: inline-block;
 			font-size: 1em;
 			font-weight: _font(weight);
-			margin: 0;
 			padding-left: (_size(element-height) * 0.6) + 0.75em;
 			padding-right: 0.75em;
 			position: relative;
 
 			&:before {
-				background: transparent;
-				border-radius: _size(border-radius);
-				border: solid _size(border-width) _palette(border);
+				background: _palette(border-bg);
 				content: '';
 				display: inline-block;
 				height: (_size(element-height) * 0.6);
@@ -122,16 +153,16 @@
 
 		&:checked + label {
 			&:before {
-				background-color: _palette(fg-bold);
-				border-color: _palette(fg-bold);
-				color: _palette(bg);
+				background: _palette(accent1);
+				border-color: _palette(accent1);
+				color: _palette(fg-bold);
 				content: '\f00c';
 			}
 		}
 
 		&:focus + label {
 			&:before {
-				border-color: _palette(accent);
+				box-shadow: 0 0 0 2px _palette(accent1);
 			}
 		}
 	}
@@ -139,7 +170,6 @@
 	input[type="checkbox"] {
 		& + label {
 			&:before {
-				border-radius: _size(border-radius);
 			}
 		}
 	}
@@ -153,30 +183,26 @@
 	}
 
 	::-webkit-input-placeholder {
+		color: _palette(fg-medium) !important;
 		opacity: 1.0;
-		color: _palette(fg-light) !important;
 	}
 
 	:-moz-placeholder {
+		color: _palette(fg-medium) !important;
 		opacity: 1.0;
-		color: _palette(fg-light) !important;
 	}
 
 	::-moz-placeholder {
+		color: _palette(fg-medium) !important;
 		opacity: 1.0;
-		color: _palette(fg-light) !important;
 	}
 
 	:-ms-input-placeholder {
+		color: _palette(fg-medium) !important;
 		opacity: 1.0;
-		color: _palette(fg-light) !important;
 	}
 
 	.formerize-placeholder {
+		color: _palette(fg-medium) !important;
 		opacity: 1.0;
-		color: _palette(fg-light) !important;
-	}
-
-	.field {
-		margin: 0 0 _size(element-margin) 0;
 	}

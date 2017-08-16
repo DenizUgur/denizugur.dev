@@ -1,9 +1,5 @@
-@import '../libs/vars';
-@import '../libs/functions';
-@import '../libs/mixins';
-
 ///
-/// Lens by HTML5 UP
+/// Multiverse by HTML5 UP
 /// html5up.net | @ajlkn
 /// Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 ///
@@ -34,7 +30,7 @@
 			padding-left: 0;
 
 			li {
-				border-top: solid _size(border-width) _palette(border);
+				border-top: solid 1px _palette(border);
 				padding: 0.5em 0;
 
 				&:first-child {
@@ -58,8 +54,10 @@
 				}
 
 				.icon {
+					color: _palette(fg-light);
+
 					&:before {
-						font-size: 1.5rem;
+						font-size: 1.5em;
 					}
 				}
 			}
@@ -136,6 +134,42 @@
 					}
 				}
 			}
+
+			@include breakpoint(xsmall) {
+				margin: 0 0 _size(element-margin) 0;
+
+				li {
+					padding: (_size(element-margin) * 0.5) 0 0 0;
+					display: block;
+					text-align: center;
+					width: 100%;
+
+					&:first-child {
+						padding-top: 0;
+					}
+
+					> * {
+						width: 100%;
+						margin: 0 !important;
+
+						&.icon {
+							&:before {
+								margin-left: -2em;
+							}
+						}
+					}
+				}
+
+				&.small {
+					li {
+						padding: (_size(element-margin) * 0.25) 0 0 0;
+
+						&:first-child {
+							padding-top: 0;
+						}
+					}
+				}
+			}
 		}
 	}
 
@@ -144,7 +178,7 @@
 
 		dt {
 			display: block;
-			font-weight: _font(weight);
+			font-weight: _font(weight-bold);
 			margin: 0 0 (_size(element-margin) * 0.5) 0;
 		}
 
