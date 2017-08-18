@@ -59,6 +59,16 @@
 		window.onorientationchange = function () {
 			document.body.scrollTop = 0;
 		}
+
+		window.onresize = function () {
+			    try {document.getElementById("ms").remove();} catch (e) {}
+				var docHeadObj = document.getElementsByTagName("head")[0];
+				var dynamicScript = document.createElement("script");
+				dynamicScript.type = "text/javascript";
+				dynamicScript.src = "assets/js/meteorshower.js";
+				dynamicScript.id = "ms";
+				docHeadObj.appendChild(dynamicScript);
+		}
 	</script>
 </body>
 
