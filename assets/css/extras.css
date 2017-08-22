@@ -1,0 +1,23 @@
+body,
+html {
+    background-color: #000 !important;
+    color: #fff !important;
+    width: 100% !important;
+    height: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+}
+
+canvas {
+    position: absolute;
+    top: 0;
+    left: 0
+}
+
+html,
+body {
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+}

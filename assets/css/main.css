@@ -1,23 +1,6 @@
 @import url("//fonts.googleapis.com/css?family=Source+Sans+Pro:300,900");
 @import url("font-awesome.min.css");
 
-body,
-html {
-	background-color: #000 !important;
-	color: #fff !important;
-	width: 100% !important;
-	height: 100% !important;
-	margin: 0 !important;
-	padding: 0 !important;
-	overflow: hidden !important;
-}
-
-canvas {
-	position: absolute;
-	top: 0;
-	left: 0
-}
-
 /* Reset */
 html,
 body,
