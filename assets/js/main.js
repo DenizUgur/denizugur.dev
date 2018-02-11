@@ -1,6 +1,6 @@
 $(document).ready(function () {
     var data = {
-        "google": "https://www.google.com"
+        "google": "https://www.google.com",
         "pamporovo": "https://www.youtube.com/watch?v=E6RPadYqsKE"
     };
 
