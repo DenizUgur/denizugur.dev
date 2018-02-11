@@ -1,14 +1,24 @@
 $(document).ready(function () {
     var data = {
-        "google": "https://www.google.com",
         "pamporovo": "https://www.youtube.com/watch?v=E6RPadYqsKE"
     };
 
-    var hash = window.location.hash.substring(1);
-
+    var hash = url_query("ref");
     $.each(data, function (key, val) {
         if (hash === key) {
             window.location = val;
         }
     });
 });
+
+function url_query(query) {
+    query = query.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
+    var expr = "[\\?&]" + query + "=([^&#]*)";
+    var regex = new RegExp(expr);
+    var results = regex.exec(window.location.href);
+    if (results !== null) {
+        return results[1];
+    } else {
+        return false;
+    }
+}
