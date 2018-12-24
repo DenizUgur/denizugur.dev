@@ -10,7 +10,7 @@ $(document).ready(function () {
         }
     });
 
-    var url = "http://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=Deniz343&api_key=fa142978a84c511403a710029688c023&format=json&limit=1";
+    var url = "https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=Deniz343&api_key=fa142978a84c511403a710029688c023&format=json&limit=1";
 
     $.get(url, function (data) {
         var name = data.recenttracks.track[0].name;
