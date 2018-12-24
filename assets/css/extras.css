@@ -21,3 +21,25 @@ body {
     -moz-user-select: none;
     -webkit-user-select: none;
 }
+
+#lastfm {
+    cursor: pointer;
+}
+
+.pulse {
+    animation: pulse 3s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        color: white;
+    }
+
+    50% {
+        color: #7DD669;
+    }
+
+    100% {
+        color: white;
+    }
+}

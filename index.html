@@ -15,7 +15,7 @@
 	<meta property="og:description" content="Deniz's main webpage" />
 	<meta property="og:type" content="website" />
 	<meta property="og:image" content="images/wp.jpg">
-	<meta name="theme-color" content="#05004c" />
+	<meta name="theme-color" content="#1d195d" />
 </head>
 
 <body class="loading">
@@ -26,17 +26,17 @@
 			<!-- Header -->
 			<header id="header">
 				<h1>Deniz Uğur</h1>
-				<p>Landscape Photographer &nbsp;&bull;&nbsp; Ultimate Skier &nbsp;&bull;&nbsp; Astronomy Freak</p>
+				<p>⛷ Ultimate Skier &nbsp;&bull;&nbsp; 🚴🏻 Cyclist &nbsp;&bull;&nbsp; 🌌 Astronomy Freak <a target="_blank" id="lastfm"></a></p>
 				<nav>
 					<ul>
 						<li><a target="_blank" href="/gallery" class="icon fa-picture-o">
-                                    <span class="label">Gallery</span></a></li>
+								<span class="label">Gallery</span></a></li>
 						<li><a target="_blank" href="//instagram.com/_u/denizdaking/" class="icon fa-instagram">
-                                    <span class="label">Instagram</span></a></li>
-						<li><a target="_blank" href="//github.com/DenizUgur" class="icon fa-github">
-									<span class="label">Github</span></a></li>
+								<span class="label">Instagram</span></a></li>
 						<li><a target="_blank" href="//open.spotify.com/user/denizdaking" class="icon fa-spotify">
-                                    <span class="label">Spotify</span></a></li>
+								<span class="label">Spotify</span></a></li>
+						<li><a target="_blank" href="//github.com/DenizUgur" class="icon fa-github">
+								<span class="label">Github</span></a></li>
 					</ul>
 				</nav>
 			</header>
@@ -48,8 +48,8 @@
 
 		</div>
 	</div>
-<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-    <script src="assets/js/jquery.slim.min.js"></script>
+	<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+	<script src="assets/js/jquery.min.js"></script>
 	<script src="assets/js/main.js"></script>
 	<script src="assets/js/meteorshower.js"></script>
 	<script>
@@ -64,13 +64,15 @@
 		}
 
 		window.onresize = function () {
-			    try {document.getElementById("ms").remove();} catch (e) {}
-				var docHeadObj = document.getElementsByTagName("head")[0];
-				var dynamicScript = document.createElement("script");
-				dynamicScript.type = "text/javascript";
-				dynamicScript.src = "assets/js/meteorshower.js";
-				dynamicScript.id = "ms";
-				docHeadObj.appendChild(dynamicScript);
+			try {
+				document.getElementById("ms").remove();
+			} catch (e) {}
+			var docHeadObj = document.getElementsByTagName("head")[0];
+			var dynamicScript = document.createElement("script");
+			dynamicScript.type = "text/javascript";
+			dynamicScript.src = "assets/js/meteorshower.js";
+			dynamicScript.id = "ms";
+			docHeadObj.appendChild(dynamicScript);
 		}
 	</script>
 </body>

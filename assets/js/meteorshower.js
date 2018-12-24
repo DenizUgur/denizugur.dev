@@ -41,7 +41,7 @@ for (var i = 1; i < power; i *= 2) {
 }
 
 // Second canvas used for the stars
-bgCtx.fillStyle = "#05004c";
+bgCtx.fillStyle = "#1d195d";
 bgCtx.fillRect(0, 0, width, height);
 
 // stars
