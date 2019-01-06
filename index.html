@@ -9,6 +9,7 @@
 	<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
 	<link rel="stylesheet" href="assets/css/main.css" />
 	<link rel="stylesheet" href="assets/css/extras.css" />
+	<link rel="stylesheet" href="assets/css/playbox.css" />
 	<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
 	<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
 	<meta property="og:title" content="Deniz Uğur" />
@@ -22,11 +23,10 @@
 	<div id="wrapper">
 		<canvas id="bgCanvas"></canvas>
 		<div id="main">
-
 			<!-- Header -->
 			<header id="header">
 				<h1>Deniz Uğur</h1>
-				<p>⛷ Ultimate Skier &nbsp;&bull;&nbsp; 🚴🏻 Cyclist &nbsp;&bull;&nbsp; 🌌 Astronomy Freak <a target="_blank" id="lastfm"></a></p>
+				<p>⛷ Ultimate Skier &nbsp;&bull;&nbsp; 🚴🏻 Cyclist &nbsp;&bull;&nbsp; 🌌 Astronomy Freak</p>
 				<nav>
 					<ul>
 						<li><a target="_blank" href="/gallery" class="icon fa-picture-o">
@@ -40,17 +40,28 @@
 					</ul>
 				</nav>
 			</header>
-
 			<!-- Footer -->
 			<footer id="footer">
 				<span class="copyright">&copy; Deniz Uğur</span>
 			</footer>
-
+		</div>
+		<!-- Playbox -->
+		<div id="playbox">
+			<div class="wrapper">
+				<div class="progress"></div>
+				<div class="art"></div>
+				<div class="text">
+					<div class="song"></div>
+					<div class="artist"></div>
+					<div class="album"></div>
+				</div>
+			</div>
 		</div>
 	</div>
 	<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 	<script src="assets/js/jquery.min.js"></script>
 	<script src="assets/js/main.js"></script>
+	<script src="assets/js/playbox.js"></script>
 	<script src="assets/js/meteorshower.js"></script>
 	<script>
 		window.onload = function () {
