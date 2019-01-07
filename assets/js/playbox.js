@@ -12,12 +12,16 @@ $(document).ready(function () {
             var nowplaying = data.recenttracks.track[0]["@attr"].nowplaying;
 
         if (name.length > 0) {
-            $('.artist').html(artist);
-            $('.song').html(name);
-            $('.album').html(album);
-            $('.art').css('background-image', 'url("' + image + '")');
+            $(".artist").html(artist);
+            $(".song").html(name);
+            $(".album").html(album);
+            if (image.length > 0) {
+                $(".art").css("background-image", "url('" + image + "')");
+            } else {
+                $(".art").css("background-image", "url('../assets/images/default.png')");
+            }
             $(".art").on("click", function () {
-                window.open(lastfm_url, '_blank');
+                window.open(lastfm_url, "_blank");
             });
         }
         if (nowplaying == "true") {
