@@ -16,9 +16,12 @@ $(document).ready(function () {
             $(".song").html(name);
             $(".album").html(album);
             if (image.length > 0) {
-                $(".art").css("background-image", "url('" + image + "')");
-            } else {
-                $(".art").css("background-image", "url('../assets/images/default.png')");
+                var ai = new Image();
+                ai.crossOrigin = "Anonymous";
+                ai.src = image;
+                ai.onload = function () {
+                    $(".art").css("background-image", "url('" + image + "')");
+                };
             }
             $(".art").on("click", function () {
                 window.open(lastfm_url, "_blank");

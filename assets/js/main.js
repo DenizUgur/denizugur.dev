@@ -9,6 +9,11 @@ $(document).ready(function () {
             window.location = val;
         }
     });
+
+    if (Math.random() < 0.3) {
+        $(".glitch-wrapper").find("h1").hide();
+        $(".glitch-wrapper").find("div").show();
+    }
 });
 
 function url_query(query) {

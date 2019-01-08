@@ -11,6 +11,19 @@
     window.requestAnimationFrame = requestAnimationFrame;
 })();
 
+// Gyroscope Setup
+var gyro = {x: 0, y: 0, z: 0, limit: 0};
+var extraRoom = 1500;
+if (window.DeviceMotionEvent) {
+    window.addEventListener("devicemotion", function(event) {
+        gyro.x = event.accelerationIncludingGravity.x;
+        gyro.y = event.accelerationIncludingGravity.y;
+        gyro.z = event.accelerationIncludingGravity.z;
+    }, false);
+} else {
+    console.log("DeviceMotionEvent is not supported");
+}
+
 // Terrain stuff.
 var background = document.getElementById("bgCanvas"),
     bgCtx = background.getContext("2d"),
@@ -18,6 +31,8 @@ var background = document.getElementById("bgCanvas"),
     height = document.body.offsetHeight;
 height < 400 ? (height = 400) : height;
 
+// Extra room for gyroscope
+width += extraRoom;
 background.width = width;
 background.height = height;
 
@@ -60,10 +75,14 @@ Star.prototype.reset = function () {
 };
 
 Star.prototype.update = function () {
-    this.x -= this.speed;
-    if (this.x < 0) {
-        this.reset();
-    } else {
+    if (gyro.limit < width - 100 && gyro.limit > 100) {
+        mult = ((Math.abs(gyro.x) * 6 / 8) + 2);
+        mult = mult < 6 ? mult : 5.99;
+        mult = gyro.x * (this.size / 2) * mult / Math.log10(width);
+        if (mult < 0.08 && mult > -0.08) mult = 0.08;
+        this.x -= mult;
+    }
+    if (this.x >= 0) {
         bgCtx.fillRect(this.x, this.y, this.size, this.size);
     }
 };
@@ -109,13 +128,14 @@ var entities = [];
 for (var i = 0; i < height; i++) {
     entities.push(
         new Star({
-            x: Math.random() * width,
+            x: (Math.random() * width) - 100,
             y: Math.random() * height
         })
     );
 }
 
 // Add 2 shooting stars that just cycle.
+entities.push(new ShootingStar());
 entities.push(new ShootingStar());
 entities.push(new ShootingStar());
 
@@ -127,6 +147,14 @@ function animate() {
     bgCtx.strokeStyle = "#ffffff";
 
     var entLen = entities.length;
+
+    //Gyro Limit update
+    gyro.limit += gyro.x;
+    if (gyro.limit > width - 100) {
+        gyro.limit = width - 100;
+    } else if (gyro.limit < 100) {
+        gyro.limit = 100;
+    }
 
     while (entLen--) {
         entities[entLen].update();
