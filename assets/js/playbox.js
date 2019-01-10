@@ -21,7 +21,10 @@ $(document).ready(function () {
                 ai.src = image;
                 ai.onload = function () {
                     $(".art").css("background-image", "url('" + image + "')");
+                    $("#playbox").fadeIn();
                 };
+            } else {
+                $("#playbox").fadeIn();
             }
             $(".art").on("click", function () {
                 window.open(lastfm_url, "_blank");
