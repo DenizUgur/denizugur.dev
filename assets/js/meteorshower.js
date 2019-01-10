@@ -45,6 +45,13 @@ if (window.DeviceMotionEvent && !matchMedia('(pointer:fine)').matches) {
 		// Calibrating
 		gyro.x = gyro.x < gyro.zero.x ? -1 * Math.abs(gyro.x - gyro.zero.x) : Math.abs(gyro.x - gyro.zero.x);
 		gyro.y = gyro.y < gyro.zero.y ? -1 * Math.abs(gyro.y - gyro.zero.y) : Math.abs(gyro.y - gyro.zero.y);
+
+		// Landscape fix
+		if (window.innerWidth > window.innerHeight) {
+			var tmp = gyro.x;
+			gyro.x = gyro.y;
+			gyro.y = tmp;
+		}
 	}, false);
 } else {
 	window.addEventListener("mousemove", function (event) {
