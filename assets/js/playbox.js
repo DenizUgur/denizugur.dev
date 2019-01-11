@@ -9,7 +9,7 @@ $(document).ready(function () {
         var lastfm_url = data.recenttracks.track[0].url;
         var nowplaying = "false";
         if (data.recenttracks.track[0]["@attr"])
-            var nowplaying = data.recenttracks.track[0]["@attr"].nowplaying;
+            nowplaying = data.recenttracks.track[0]["@attr"].nowplaying;
 
         if (name.length > 0) {
             $(".artist").html(artist);
