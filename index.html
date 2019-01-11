@@ -3,19 +3,19 @@
 
 <head>
 	<title>Deniz Uğur</title>
-	<link rel="icon" href="assets/images/icon.png" />
+	<link rel="icon" href="dist/images/icon.png" />
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
-	<link rel="stylesheet" href="assets/css/main.css" />
-	<link rel="stylesheet" href="assets/css/extras.css" />
-	<link rel="stylesheet" href="assets/css/playbox.css" />
-	<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
-	<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+	<!--[if lte IE 8]><script src="dist/js/ie/html5shiv.min.js"></script><![endif]-->
+	<link rel="stylesheet" href="dist/css/main.min.css" />
+	<link rel="stylesheet" href="dist/css/extras.min.css" />
+	<link rel="stylesheet" href="dist/css/playbox.min.css" />
+	<!--[if lte IE 8]><link rel="stylesheet" href="dist/css/ie8.min.css" /><![endif]-->
+	<!--[if lte IE 9]><link rel="stylesheet" href="dist/css/ie9.min.css" /><![endif]-->
 	<meta property="og:title" content="Deniz Uğur" />
 	<meta property="og:description" content="Deniz's main webpage" />
 	<meta property="og:type" content="website" />
-	<meta property="og:image" content="assets/images/wp.jpg">
+	<meta property="og:image" content="dist/images/wp.jpg">
 	<meta name="theme-color" content="#1d195d" />
 </head>
 
@@ -61,11 +61,11 @@
 			</div>
 		</div>
 	</div>
-	<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-	<script src="assets/js/jquery.min.js"></script>
-	<script src="assets/js/main.js"></script>
-	<script src="assets/js/playbox.js"></script>
-	<script src="assets/js/meteorshower.js"></script>
+	<!--[if lte IE 8]><script src="dist/js/ie/respond.min.js"></script><![endif]-->
+	<script src="dist/js/jquery.min.js"></script>
+	<script src="dist/js/main.min.js"></script>
+	<script src="dist/js/playbox.min.js"></script>
+	<script src="dist/js/meteorshower.min.js"></script>
 	<script>
 		window.onload = function () {
 			document.body.className = '';
@@ -84,7 +84,7 @@
 			var docHeadObj = document.getElementsByTagName("head")[0];
 			var dynamicScript = document.createElement("script");
 			dynamicScript.type = "text/javascript";
-			dynamicScript.src = "assets/js/meteorshower.js";
+			dynamicScript.src = "dist/js/meteorshower.min.js";
 			dynamicScript.id = "ms";
 			docHeadObj.appendChild(dynamicScript);
 		}
