@@ -53,7 +53,7 @@
 }
 #playbox .wrapper
 {
-    font-size: 8pt;
+    font-size: .75rem;
     line-height: 11pt;
 
     z-index: 2; 
@@ -66,6 +66,8 @@
     display:         flex;
     overflow: hidden;
             flex-direction: row;
+
+    letter-spacing: .03em;
 
     color: #fff;
 
