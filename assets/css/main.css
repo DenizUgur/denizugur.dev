@@ -619,15 +619,15 @@ a:hover
 }
 #header nav li
 {
-    line-height: 5.885em;
+    line-height: 5.555em;
 
     position: relative;
     top: 0;
 
     display: inline-block;
 
-    width: 5.35em; 
-    height: 5.35em;
+    width: 5.05em; 
+    height: 5.05em;
 
     -webkit-transform: translate3d(0,0,0);
        -moz-transform: translate3d(0,0,0);

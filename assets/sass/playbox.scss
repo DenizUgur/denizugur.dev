@@ -18,7 +18,7 @@
     -webkit-transform: translate3d(0px, 0px, 0px);
     width: auto;
     min-width: 50px;
-    max-width: 290px;
+    max-width: 80vw;
     overflow: hidden;
     white-space: nowrap;
     background-color: rgba(0, 0, 0, 0.2);
@@ -137,11 +137,24 @@
 
 /* Mobile */
 @media screen and (max-width: 736px) {
-   #playbox {
-       bottom: 7em;
-       right: 50%;
-       transform: translateX(50%)
-   }
+    @media (orientation: landscape) {
+        #playbox {
+            bottom: -0.5em;
+            right: 1.5em;
+
+            .text {
+                display: none;
+            }
+        }
+    }
+
+    @media (orientation: portrait) {
+        #playbox {
+            bottom: 6em;
+            right: 50%;
+            transform: translateX(50%)
+        }
+    }
 }
 
 @keyframes pulse {

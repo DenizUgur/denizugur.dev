@@ -7,7 +7,8 @@ body {
     margin: 0 !important;
     padding: 0 !important;
     overflow: hidden !important;
-    user-select: none;
+    -ms-user-select: none;
+        user-select: none;
     -moz-user-select: none;
     -webkit-user-select: none;
 }
@@ -26,12 +27,34 @@ h1 {
     font-size: 3.2em !important;
 }
 
+.attributes {
+    font-size: 0.94em !important;
+    
+    li {
+        display: inline-block;
+
+        &:not(:last-child) p::after {
+            content: '\00a0\00a0'
+        }
+
+        &:not(:first-child) p::before {
+            content: '\00a0\00a0'
+        }
+    }
+}
+
 /* Glitch */
 .glitch-wrapper {
     height: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
 
     .glitch {
         color: white;

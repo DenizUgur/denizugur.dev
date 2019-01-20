@@ -10,6 +10,7 @@ body
 
     -webkit-user-select: none; 
        -moz-user-select: none;
+        -ms-user-select: none;
             user-select: none;
 
     color: #fff !important;
@@ -33,14 +34,37 @@ h1
     font-size: 3.2em !important;
 }
 
+.attributes
+{
+    font-size: .94em !important;
+}
+.attributes li
+{
+    display: inline-block;
+}
+.attributes li:not(:last-child) p::after
+{
+    content: '\00a0\00a0';
+}
+.attributes li:not(:first-child) p::before
+{
+    content: '\00a0\00a0';
+}
+
 /* Glitch */
 .glitch-wrapper
 {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
 
     height: 100%;
 
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
 }
 .glitch-wrapper .glitch

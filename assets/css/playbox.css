@@ -11,7 +11,7 @@
 
     width: auto;
     min-width: 50px;
-    max-width: 290px;
+    max-width: 80vw;
 
     cursor: default; 
     -webkit-user-select: none;
@@ -155,12 +155,25 @@
 }
 
 /* Mobile */
-@media screen and (max-width: 736px)
+@media screen and (max-width: 736px) and (orientation: landscape)
+{
+    #playbox
+    {
+        right: 1.5em; 
+        bottom: -.5em;
+    }
+    #playbox .text
+    {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 736px) and (orientation: portrait)
 {
     #playbox
     {
         right: 50%;
-        bottom: 7em;
+        bottom: 6em;
 
         transform: translateX(50%);
     }
