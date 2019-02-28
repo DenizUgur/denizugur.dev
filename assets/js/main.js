@@ -1,9 +1,9 @@
 $(document).ready(function () {
-    var data = {
+    const data = {
         "pamporovo": "https://www.youtube.com/watch?v=E6RPadYqsKE"
     };
 
-    var hash = url_query("ref");
+    let hash = url_query("ref");
     $.each(data, function (key, val) {
         if (hash === key) {
             window.location = val;
@@ -18,9 +18,9 @@ $(document).ready(function () {
 
 function url_query(query) {
     query = query.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
-    var expr = "[\\?&]" + query + "=([^&#]*)";
-    var regex = new RegExp(expr);
-    var results = regex.exec(window.location.href);
+    let expr = "[\\?&]" + query + "=([^&#]*)";
+    let regex = new RegExp(expr);
+    let results = regex.exec(window.location.href);
     if (results !== null) {
         return results[1];
     } else {
