@@ -1,0 +1,37 @@
+{
+  "name": "denizugur.github.io",
+  "version": "1.0.0",
+  "description": "Deniz Ugur's personal website",
+  "main": "index.js",
+  "scripts": {
+    "build": "gulp build",
+    "run": "gulp default",
+    "watch": "gulp watch"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.24.4",
+    "del": "^3.0.0",
+    "gulp": "3.9.1",
+    "gulp-autoprefixer": "^5.0.0",
+    "gulp-clean-css": "^3.9.4",
+    "gulp-csscomb": "^3.0.8",
+    "gulp-imagemin": "^5.0.3",
+    "gulp-postcss": "^7.0.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^4.0.2",
+    "gulp-uglify-es": "^1.0.4",
+    "gulp-wait": "0.0.2",
+    "postcss-flexbugs-fixes": "^3.3.1",
+    "run-sequence": "^2.2.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DenizUgur/denizugur.github.io.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DenizUgur/denizugur.github.io/issues"
+  },
+  "homepage": "https://github.com/DenizUgur/denizugur.github.io#readme"
+}
