@@ -19,14 +19,61 @@ function Star(options) {
 	this.y = options.y;
 }
 
-//TODO: make the rolling window infinite by teleporting the star to the inverse of the moving vector
 Star.prototype.update = function () {
-	if (Animate.gyro.limit.x < Animate.width && Animate.gyro.limit.x > 0) {
-		this.x -= Animate.mult(Animate.gyro.x, this.size, Animate.width);
+	// Next point
+	const nx = this.x - Animate.mult(Animate.gyro.x, this.size, Animate.width)
+	const ny = this.y + Animate.mult(Animate.gyro.y, this.size, Animate.height);
+
+	if (!(nx < 0 || nx > Animate.width || ny < 0 || ny > Animate.height)) {
+		this.x = nx;
+		this.y = ny;
+		Animate.bgCtx.fillRect(this.x, this.y, this.size, this.size);
+		return;
 	}
-	if (Animate.gyro.limit.y < Animate.height && Animate.gyro.limit.y > 0) {
-		this.y += Animate.mult(Animate.gyro.y, this.size, Animate.height);
+
+	let dy = ny - this.y,
+		dx = nx - this.x,
+		m = dy / dx,
+		b = ny - (m * nx),
+		ang = -Math.atan2(dy, dx) * 180 / Math.PI;
+
+	const getY = (val) => m * val + b;
+	const getX = (val) => (val - b) / m;
+
+	if (0 < ang && ang < 90) {
+		if (getY(0) > Animate.height) {
+			this.x = getX(Animate.height);
+			this.y = Animate.height
+		} else {
+			this.x = 0;
+			this.y = getY(0);
+		}
+	} else if (90 < ang && ang < 180) {
+		if (getY(Animate.width) > Animate.height) {
+			this.x = getX(Animate.height);
+			this.y = Animate.height
+		} else {
+			this.x = Animate.width;
+			this.y = getY(Animate.width);
+		}
+	} else if (-180 < ang && ang < -90) {
+		if (getY(Animate.width) < 0) {
+			this.x = getX(0);
+			this.y = 0
+		} else {
+			this.x = Animate.width;
+			this.y = getY(Animate.width);
+		}
+	} else {
+		if (getY(0) < 0) {
+			this.x = getX(0);
+			this.y = 0
+		} else {
+			this.x = 0;
+			this.y = getY(0);
+		}
 	}
+
 	Animate.bgCtx.fillRect(this.x, this.y, this.size, this.size);
 };
 
@@ -65,9 +112,6 @@ ShootingStar.prototype.update = function () {
 	}
 };
 
-
-//TODO: Maybe slowly calibrate the zero point
-//TODO: Remove extraRoom
 class Animate {
 	// Gyroscope Setup
 	static gyro = {
@@ -77,13 +121,8 @@ class Animate {
 			x: 0,
 			y: 0
 		},
-		limit: {
-			x: 0,
-			y: 0
-		},
 		calibrated: false
 	};
-	static extraRoom = 1000;
 	static movement = {
 		acc: 6.50,
 		mouse: 0.0055
@@ -146,33 +185,26 @@ class Animate {
 	static resetCanvas() {
 		Animate.width = window.innerWidth;
 		Animate.height = window.innerHeight;
-		// Extra room for gyroscope
+
 		Animate.target.width = Animate.width;
 		Animate.target.height = Animate.height;
-
-		Animate.width += Animate.extraRoom;
-		Animate.height += Animate.extraRoom;
-		Animate.gyro.limit = {
-			x: Animate.width / 2,
-			y: Animate.height / 2
-		};
 
 		Animate.initStars();
 	}
 
 	static initStars() {
 		Animate.entities = [];
-		for (var i = 0; i < Animate.height + Animate.gyro.limit.y; i++) {
+		for (var i = 0; i < Animate.height; i++) {
 			Animate.entities.push(new Star({
-				x: (Math.random() * (Animate.width + Animate.gyro.limit.x)) - Animate.gyro.limit.x,
-				y: (Math.random() * (Animate.height + Animate.gyro.limit.y)) - Animate.gyro.limit.y
+				x: Math.random() * Animate.width,
+				y: Math.random() * Animate.height
 			}));
 		}
 
-		// Add 2 shooting stars that just cycle.
-		Animate.entities.push(new ShootingStar());
-		Animate.entities.push(new ShootingStar());
-		Animate.entities.push(new ShootingStar());
+		// Add 4 shooting stars that just start the cycle.
+		for (var j = 0; j < 4; j++) {
+			Animate.entities.push(new ShootingStar());
+		}
 	}
 
 	static mult(val, size, lim) {
@@ -191,20 +223,6 @@ class Animate {
 		Animate.bgCtx.strokeStyle = Animate.starColor;
 
 		var entLen = Animate.entities.length;
-
-		//Gyro Limit update
-		Animate.gyro.limit.x += Animate.mult(Animate.gyro.x, 2, Animate.width);
-		Animate.gyro.limit.y -= Animate.mult(Animate.gyro.y, 2, Animate.height);
-		if (Animate.gyro.limit.x > Animate.width) {
-			Animate.gyro.limit.x = Animate.width;
-		} else if (Animate.gyro.limit.x < 0) {
-			Animate.gyro.limit.x = 0;
-		}
-		if (Animate.gyro.limit.y > Animate.height) {
-			Animate.gyro.limit.y = Animate.height;
-		} else if (Animate.gyro.limit.y < 0) {
-			Animate.gyro.limit.y = 0;
-		}
 
 		while (entLen--) {
 			Animate.entities[entLen].update();
