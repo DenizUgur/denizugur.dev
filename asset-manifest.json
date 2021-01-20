@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/static/css/main.e61c8cf7.chunk.css",
-    "main.js": "/static/js/main.06d6dfca.chunk.js",
-    "main.js.map": "/static/js/main.06d6dfca.chunk.js.map",
+    "main.css": "/static/css/main.d43c92d1.chunk.css",
+    "main.js": "/static/js/main.6502274c.chunk.js",
+    "main.js.map": "/static/js/main.6502274c.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.ac15fc54.js",
     "runtime-main.js.map": "/static/js/runtime-main.ac15fc54.js.map",
     "static/js/2.d89493fc.chunk.js": "/static/js/2.d89493fc.chunk.js",
     "static/js/2.d89493fc.chunk.js.map": "/static/js/2.d89493fc.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.24a646703560ea029f35fa8162475682.js": "/precache-manifest.24a646703560ea029f35fa8162475682.js",
+    "precache-manifest.e2d9e19ebf5ca370e7e552a3e341507c.js": "/precache-manifest.e2d9e19ebf5ca370e7e552a3e341507c.js",
     "service-worker.js": "/service-worker.js",
-    "static/css/main.e61c8cf7.chunk.css.map": "/static/css/main.e61c8cf7.chunk.css.map",
+    "static/css/main.d43c92d1.chunk.css.map": "/static/css/main.d43c92d1.chunk.css.map",
     "static/js/2.d89493fc.chunk.js.LICENSE.txt": "/static/js/2.d89493fc.chunk.js.LICENSE.txt",
-    "static/media/ICRA21.png": "/static/media/ICRA21.b00129fe.png",
+    "static/media/ICRA21.jpg": "/static/media/ICRA21.bf623ef8.jpg",
     "static/media/arrow.svg": "/static/media/arrow.99c073f1.svg",
     "static/media/pp.jpg": "/static/media/pp.aefe4e24.jpg",
     "static/media/siemens.jpg": "/static/media/siemens.7a584e2b.jpg"
@@ -20,7 +20,7 @@
   "entrypoints": [
     "static/js/runtime-main.ac15fc54.js",
     "static/js/2.d89493fc.chunk.js",
-    "static/css/main.e61c8cf7.chunk.css",
-    "static/js/main.06d6dfca.chunk.js"
+    "static/css/main.d43c92d1.chunk.css",
+    "static/js/main.6502274c.chunk.js"
   ]
 }
