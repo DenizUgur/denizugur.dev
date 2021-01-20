@@ -1,0 +1,193 @@
+@import url('//fonts.googleapis.com/css2?family=Source+Sans+Pro:300,900&display=swap');
+@import url('//fonts.googleapis.com/css2?family=Inconsolata&display=swap');
+@import './mixins/fluid';
+
+$bg-color: rgba(0, 0, 15, 0.9);
+$minScreen: em(320);
+$maxScreen: em(960);
+
+:root {
+	--app-height: 100%;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	height: 100vh;
+	height: var(--app-height);
+	user-select: none;
+	background-color: $bg-color;
+}
+
+main {
+	height: 100%;
+	height: var(--app-height);
+	scroll-behavior: smooth;
+	overflow-y: scroll;
+}
+
+section {
+	z-index: 1;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+section.intro {
+	height: 100vh;
+	height: var(--app-height);
+	display: flex;
+	flex-direction: column;
+}
+
+canvas {
+	position: absolute;
+	top: 0;
+	z-index: -1;
+}
+
+.main {
+	// Position
+	position: relative;
+	margin: 40vh auto 0 auto;
+	@media (max-height: 618px) {
+		margin: 20vh auto 0 auto;
+	}
+
+	// Area
+	min-width: $minScreen;
+	max-width: $maxScreen;
+	@media (max-height: 618px) and (orientation: landscape) {
+		width: 60vw;
+	}
+
+	// Layout
+	display: flex;
+	flex-direction: column;
+
+	// Style
+	background-color: $bg-color;
+	color: white;
+
+	// Profile
+	&::before {
+		// Content
+		content: '';
+		background-image: url('img/pp.jpg');
+		background-position: center center;
+		background-size: contain;
+
+		// Border
+		border-radius: 100%;
+		border: 0.2em solid white;
+
+		// Size
+		width: 20vmin;
+		height: 20vmin;
+
+		// Layout
+		position: absolute;
+		top: calc(-15vmin - 0.2em);
+		left: 50%;
+		transform: translateX(-50%);
+
+		@media (max-height: 618px) {
+			top: 5vmin;
+			left: calc(100% - 13vmin - 0.2em);
+		}
+	}
+}
+
+.main .intro_content {
+	// Size
+	padding: 2vmax 5vmin 2vmax 5vmin;
+	font-family: 'Inconsolata', monospace;
+
+	@media only screen and (min-width: 618px) {
+		// Layout
+		top: 5vmin;
+	}
+}
+
+.main .name {
+	// Font
+	font-weight: 900;
+	letter-spacing: -0.035em;
+	font-family: 'Source Sans Pro', sans-serif;
+	@include fluid-type(font-size, $minScreen, $maxScreen, 1.3rem, 3rem);
+}
+
+.main .title {
+	padding: 0px 0 8px 0;
+	color: gray;
+	@include fluid-type(font-size, $minScreen, $maxScreen, 0.8rem, 1rem);
+
+	td {
+		font-style: italic;
+	}
+}
+
+.main p {
+	margin: 8px 0 0 0;
+	white-space: pre-wrap;
+	@include fluid-type(font-size, $minScreen, $maxScreen, 0.8rem, 1rem);
+
+	@media (max-height: 618px) and (orientation: landscape) {
+		display: none;
+	}
+}
+
+a.more {
+	z-index: 1;
+	height: 8.5em;
+	flex-shrink: 1;
+	padding-top: 16px;
+
+	transition: transform 0.75s ease, opacity 0.75s ease;
+	transition-delay: 3.5s;
+	transform: translateY(0);
+
+	border: none;
+	outline: 0;
+	color: white;
+	opacity: 1;
+	text-align: center;
+	text-transform: uppercase;
+	font-size: 0.8em;
+	text-decoration: none;
+	letter-spacing: 0.225em;
+
+	&::after {
+		position: absolute;
+		display: block;
+		height: 1.5em;
+		width: 1.5em;
+		left: 50%;
+		bottom: 40%;
+		margin: 0 0 0 -0.75em;
+		content: '';
+
+		background-image: url('img/arrow.svg');
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: contain;
+	}
+}
+
+section.full {
+	background-color: $bg-color;
+	color: white;
+
+	min-width: 320px;
+	max-width: 768px;
+	margin: 0 auto;
+}
+
+footer {
+	font-family: 'Inconsolata', monospace;
+	color: white;
+	text-align: center;
+	padding: 5vh 0;
+}

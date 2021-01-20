@@ -1,0 +1,138 @@
+@import '../mixins/fluid';
+
+$minScreen: em(368);
+$maxScreen: em(768);
+
+.heading {
+	margin-top: 32px;
+	width: fit-content;
+
+	color: white;
+
+	font-family: 'Source Sans Pro', sans-serif;
+	font-weight: 900;
+	text-transform: capitalize;
+
+	@include fluid-type(font-size, $minScreen, $maxScreen, 1em, 1.2em);
+
+	&::before {
+		content: '\02E7  ';
+	}
+}
+
+.container {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	padding: 0 5vmin;
+
+	font-family: 'Inconsolata', monospace;
+}
+
+.item {
+	margin: 16px 0;
+	min-height: 5vh;
+
+	display: flex;
+	flex-direction: row;
+
+	.logo {
+		&,
+		img {
+			$mult: 0.6;
+			@include fluid-type(
+				(min-width, max-width),
+				$minScreen,
+				$maxScreen,
+				em(64 * $mult),
+				em(128 * $mult)
+			);
+			@include fluid-type(
+				height,
+				$minScreen,
+				$maxScreen,
+				em(64 * $mult),
+				em(128 * $mult)
+			);
+			align-self: flex-start;
+		}
+
+		img {
+			background-color: white;
+			object-fit: contain;
+			border-radius: 16px;
+		}
+	}
+
+	.content {
+		flex-grow: 1;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		min-width: 0;
+		margin: 0 2vmin;
+
+		$minSize: 0.8em;
+		$maxSize: 1.1em;
+
+		div {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			@include fluid-type(
+				font-size,
+				$minScreen,
+				$maxScreen,
+				$minSize,
+				$maxSize
+			);
+
+			a {
+				color: white;
+				text-decoration: none;
+				flex-grow: 1;
+
+				overflow: hidden;
+				white-space: nowrap;
+				text-overflow: ellipsis;
+			}
+
+			span {
+				white-space: nowrap;
+				margin-left: 2em;
+			}
+		}
+
+		.sub {
+			color: darken($color: #fff, $amount: 40%);
+			@include fluid-type(
+				font-size,
+				$minScreen,
+				$maxScreen,
+				$minSize * 0.9,
+				$maxSize * 0.9
+			);
+		}
+
+		.sub_content {
+			margin-top: 2vmin;
+			@include fluid-type(
+				font-size,
+				$minScreen,
+				$maxScreen,
+				$minSize * 0.8,
+				$maxSize * 0.8
+			);
+
+			* {
+				white-space: pre-wrap;
+				margin: 0;
+				padding: 0;
+			}
+
+			ul {
+				padding: 0 1em;
+			}
+		}
+	}
+}
