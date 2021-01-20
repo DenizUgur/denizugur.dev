@@ -14,7 +14,7 @@
 
 // stars
 function Star(options) {
-	this.size = Math.random() * 3;
+	this.size = Math.random() * 2;
 	this.x = options.x;
 	this.y = options.y;
 }

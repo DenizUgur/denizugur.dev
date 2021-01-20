@@ -1,5 +1,6 @@
 @import '../mixins/fluid';
 
+$bg-color: rgba(0, 0, 15, 0.9);
 $minScreen: em(368);
 $maxScreen: em(768);
 
@@ -25,6 +26,7 @@ $maxScreen: em(768);
 	flex-direction: column;
 	width: 100%;
 	padding: 0 5vmin;
+	background-color: $bg-color;
 
 	font-family: 'Inconsolata', monospace;
 }
