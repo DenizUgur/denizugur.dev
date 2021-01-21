@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useRef } from 'react';
+import React, { useLayoutEffect, useRef, useState } from 'react';
 import Animate from './lib/meteorshower';
 import styles from './App.module.scss';
 import { CV } from './sections';
@@ -7,6 +7,7 @@ const data = require('./data/meta.json');
 
 function App() {
 	const bg = useRef(null);
+	const [contactDrawer, setContactDrawer] = useState(false);
 
 	useLayoutEffect(() => {
 		new Animate(
@@ -32,17 +33,64 @@ function App() {
 				<section className={styles.intro} id="home">
 					<div className={styles.main}>
 						<div className={styles.intro_content}>
-							<div className={styles.name}>Deniz Uğur</div>
+							<div className={styles.header}>
+								<span>Deniz Uğur</span>
+								<div className={styles.icons}>
+									<div>
+										{data.contact.map(
+											(el: any) =>
+												el.priority && (
+													<a
+														href={el.link}
+														key={el.link}
+														target="_blank"
+														rel="noopener noreferrer">
+														<i className={el.icon}></i>
+													</a>
+												)
+										)}
+									</div>
+									<a
+										href="#contact"
+										onClick={() => setContactDrawer(!contactDrawer)}>
+										<i className="fas fa-ellipsis-h"></i>
+									</a>
+								</div>
+							</div>
 							<table className={styles.title}>
-								{data.title.map((el: any) => (
-									<tr>
-										<td>
-											<i className={`fas ${el.icon}`} />
-										</td>
-										<td>{el.text}</td>
-									</tr>
-								))}
+								<tbody>
+									{data.title.map((el: any) => (
+										<tr key={el.text}>
+											<td>
+												<i className={el.icon} />
+											</td>
+											<td>{el.text}</td>
+										</tr>
+									))}
+								</tbody>
 							</table>
+							<div className={styles.contact_details} hidden={!contactDrawer}>
+								<h3>Contact me&#8230;</h3>
+								<table>
+									<tbody>
+										{data.contact.map((el: any) => (
+											<tr key={el.text}>
+												<td>
+													<i className={el.icon} />
+												</td>
+												<td>
+													<a
+														href={el.link}
+														target="_blank"
+														rel="noopener noreferrer">
+														{el.text}
+													</a>
+												</td>
+											</tr>
+										))}
+									</tbody>
+								</table>
+							</div>
 							<p>{data.bio}</p>
 						</div>
 					</div>

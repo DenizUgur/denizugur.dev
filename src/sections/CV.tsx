@@ -7,10 +7,10 @@ export default function CV() {
 	return (
 		<div className={styles.container}>
 			{Object.keys(data).map((key, _) => (
-				<>
+				<div key={key}>
 					<div className={styles.heading}>{key}</div>
 					{data[key].map((el: any) => (
-						<div className={styles.item}>
+						<div className={styles.item} key={el.header.name}>
 							<div className={styles.logo}>
 								{el.img && (
 									<img
@@ -41,7 +41,7 @@ export default function CV() {
 							</div>
 						</div>
 					))}
-				</>
+				</div>
 			))}
 		</div>
 	);

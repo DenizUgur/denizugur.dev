@@ -10,6 +10,10 @@ $maxScreen: em(960);
 	--app-height: 100%;
 }
 
+html {
+	background-color: #00000f;
+}
+
 html,
 body {
 	margin: 0;
@@ -50,7 +54,7 @@ canvas {
 .main {
 	// Position
 	position: relative;
-	margin: 40vh auto 0 auto;
+	margin: auto auto 5vh auto;
 	@media (max-height: 618px) {
 		margin: 20vh auto 0 auto;
 	}
@@ -110,12 +114,90 @@ canvas {
 	}
 }
 
-.main .name {
-	// Font
-	font-weight: 900;
-	letter-spacing: -0.035em;
-	font-family: 'Source Sans Pro', sans-serif;
-	@include fluid-type(font-size, $minScreen, $maxScreen, 1.3rem, 3rem);
+.main .header {
+	display: flex;
+	align-items: center;
+
+	span {
+		flex: 1;
+		font-weight: 900;
+		letter-spacing: -0.035em;
+		font-family: 'Source Sans Pro', sans-serif;
+		@include fluid-type(font-size, $minScreen, $maxScreen, 1.3rem, 3rem);
+	}
+
+	div.icons {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+		max-width: 33%;
+		@include fluid-type(--scale, $minScreen, $maxScreen, 1rem, 1.4rem);
+
+		div {
+			flex: 1;
+			display: flex;
+			flex-direction: row;
+			justify-content: flex-end;
+
+			flex-wrap: wrap;
+			max-height: calc(var(--scale) * 1.5);
+			overflow: hidden;
+		}
+
+		a {
+			--gap: calc(var(--scale) * 0.5);
+			--color: rgba(255, 255, 255, 0.5);
+
+			margin-left: var(--gap);
+
+			width: calc(var(--scale) * 1.5);
+			height: calc(var(--scale) * 1.5);
+
+			border-radius: 100%;
+			border: 2px solid var(--color);
+
+			display: flex;
+			justify-content: center;
+			align-items: center;
+
+			text-decoration: none;
+			color: var(--color);
+
+			transition: all 0.1s ease-in-out;
+
+			&:hover {
+				color: #fff;
+				border-color: #fff;
+			}
+		}
+
+		@media (max-height: 618px) and (orientation: landscape) {
+			display: none;
+		}
+	}
+}
+
+.main .contact_details {
+	padding: 0.8rem 0;
+
+	border-top: 1px dashed #fff;
+	border-bottom: 1px dashed #fff;
+
+	@include fluid-type(font-size, $minScreen, $maxScreen, 0.8rem, 1rem);
+
+	h3 {
+		margin-top: 0;
+	}
+
+	a {
+		color: white;
+		text-decoration: none;
+
+		&:hover {
+			color: rgb(0, 209, 139);
+		}
+	}
 }
 
 .main .title {
