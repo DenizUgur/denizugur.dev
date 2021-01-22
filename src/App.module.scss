@@ -55,14 +55,14 @@ canvas {
 	// Position
 	position: relative;
 	margin: auto auto 5vh auto;
-	@media (max-height: 618px) {
+	@media (max-height: 418px) {
 		margin: 20vh auto 0 auto;
 	}
 
 	// Area
 	min-width: $minScreen;
 	max-width: $maxScreen;
-	@media (max-height: 618px) and (orientation: landscape) {
+	@media (max-height: 418px) and (orientation: landscape) {
 		width: 60vw;
 	}
 
@@ -96,7 +96,7 @@ canvas {
 		left: 50%;
 		transform: translateX(-50%);
 
-		@media (max-height: 618px) {
+		@media (max-height: 418px) {
 			top: 5vmin;
 			left: calc(100% - 13vmin - 0.2em);
 		}
@@ -108,7 +108,7 @@ canvas {
 	padding: 2vmax 5vmin 2vmax 5vmin;
 	font-family: 'Inconsolata', monospace;
 
-	@media only screen and (min-width: 618px) {
+	@media only screen and (min-width: 418px) {
 		// Layout
 		top: 5vmin;
 	}
@@ -172,7 +172,7 @@ canvas {
 			}
 		}
 
-		@media (max-height: 618px) and (orientation: landscape) {
+		@media (max-height: 418px) and (orientation: landscape) {
 			display: none;
 		}
 	}
@@ -215,7 +215,7 @@ canvas {
 	white-space: pre-wrap;
 	@include fluid-type(font-size, $minScreen, $maxScreen, 0.8rem, 1rem);
 
-	@media (max-height: 618px) and (orientation: landscape) {
+	@media (max-height: 418px) and (orientation: landscape) {
 		display: none;
 	}
 }
