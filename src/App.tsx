@@ -23,6 +23,7 @@ function App() {
 			doc.style.setProperty('--app-height', `${window.innerHeight}px`);
 		};
 		window.addEventListener('resize', () => update(false));
+		window.addEventListener('orientationchange', () => update(false));
 		update(true);
 		return () => {};
 	}, []);

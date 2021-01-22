@@ -172,22 +172,25 @@ class Animate {
 
 		Animate.bgCtx = target.getContext("2d");
 
+		// init the canvas
 		Animate.resetCanvas();
-
-		// Second canvas used for the stars
-		Animate.bgCtx.fillStyle = Animate.bgColor;
-		Animate.bgCtx.fillRect(0, 0, Animate.width, Animate.height);
 
 		// init the stars 
 		Animate.initStars();
 	}
 
 	static resetCanvas() {
+		Animate.target.width = 0;
+		Animate.target.height = 0;
+
 		Animate.width = window.innerWidth;
 		Animate.height = window.innerHeight;
 
 		Animate.target.width = Animate.width;
 		Animate.target.height = Animate.height;
+
+		Animate.bgCtx.fillStyle = Animate.bgColor;
+		Animate.bgCtx.fillRect(0, 0, Animate.width, Animate.height);
 
 		Animate.initStars();
 	}
