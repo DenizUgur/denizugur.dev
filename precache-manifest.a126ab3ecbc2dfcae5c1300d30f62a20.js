@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "4f411673fbb55aab6ed10a39b6ac9295",
+    "revision": "ea8ad5916a58e59f3c42119c7c6e0f46",
     "url": "/index.html"
   },
   {
-    "revision": "feae0895f7a3b6bdf3e7",
-    "url": "/static/css/main.3548a68e.chunk.css"
+    "revision": "c53d85b92e5b8c930271",
+    "url": "/static/css/main.2f7de26a.chunk.css"
   },
   {
     "revision": "daf916894e31c017e505",
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/js/2.c3f67b84.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "feae0895f7a3b6bdf3e7",
-    "url": "/static/js/main.79fa7e4e.chunk.js"
+    "revision": "c53d85b92e5b8c930271",
+    "url": "/static/js/main.239147a2.chunk.js"
   },
   {
     "revision": "b6f8986f68a810051015",
@@ -25,7 +25,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   },
   {
     "revision": "bf623ef88e3234007305d48dc702c0ed",
-    "url": "/static/media/ICRA21.bf623ef8.jpg"
+    "url": "/static/media/CASE21.bf623ef8.jpg"
   },
   {
     "revision": "99c073f1773d03d59085bd3c91fcc1e3",
@@ -38,5 +38,9 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "7a584e2b1fbac2b1893aecb10d904d0d",
     "url": "/static/media/siemens.7a584e2b.jpg"
+  },
+  {
+    "revision": "b362b2414f1c765c70abadacb9239f82",
+    "url": "/static/media/werob.b362b241.jpg"
   }
 ]);
