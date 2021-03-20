@@ -117,7 +117,7 @@ $maxScreen: em(768);
 		}
 
 		.sub_content {
-			margin-top: 2vmin;
+			margin-top: 0.2rem;
 			@include fluid-type(
 				font-size,
 				$minScreen,
