@@ -10,11 +10,11 @@ export default function CV() {
 				<div key={key}>
 					<div className={styles.heading}>{key}</div>
 					{data[key].map((el: any) => (
-						<div className={styles.item} key={el.header.name}>
+						<div className={styles.item} key={Math.random()}>
 							<div className={styles.logo}>
 								{el.img && (
 									<img
-										src={require(`../img/${el.img.file}`)}
+										src={require(`../img/${el.img.file}`).default}
 										alt={el.img.alt}
 									/>
 								)}
