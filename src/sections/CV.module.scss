@@ -95,7 +95,6 @@ $maxScreen: em(768);
 				flex-grow: 1;
 
 				overflow: hidden;
-				white-space: nowrap;
 				text-overflow: ellipsis;
 			}
 
@@ -114,6 +113,15 @@ $maxScreen: em(768);
 				$minSize * 0.9,
 				$maxSize * 0.9
 			);
+
+			a {
+				color: darken($color: #fff, $amount: 40%);
+				text-decoration: none;
+				flex-grow: 1;
+
+				overflow: hidden;
+				text-overflow: ellipsis;
+			}
 		}
 
 		.sub_content {
