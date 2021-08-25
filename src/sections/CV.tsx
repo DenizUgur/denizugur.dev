@@ -30,7 +30,11 @@ const Publication = (props: any) => {
 	return (
 		<div className={styles.content}>
 			<div>
-				<a href={el.header.link} target="_blank" rel="noopener noreferrer">
+				<a
+					href={el.header.link}
+					target="_blank"
+					rel="noopener noreferrer"
+					className={el.header.link ? styles.has_link : ''}>
 					{el.header.title}
 				</a>
 				<span>{el.date}</span>

@@ -98,6 +98,15 @@ $maxScreen: em(768);
 				text-overflow: ellipsis;
 			}
 
+			a.has_link {
+				transition: all 500ms;
+
+				&:hover {
+					color: #00ddaa;
+					text-decoration: underline;
+				}
+			}
+
 			span {
 				white-space: nowrap;
 				margin-left: 2em;
