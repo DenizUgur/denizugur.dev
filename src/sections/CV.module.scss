@@ -1,6 +1,8 @@
 @import '../mixins/fluid';
 
-$bg-color: rgba(0, 0, 15, 0.9);
+$bg-color-dark: rgba(0, 0, 15, 0.9);
+$bg-color-light: #eee;
+
 $minScreen: em(368);
 $maxScreen: em(768);
 
@@ -8,7 +10,10 @@ $maxScreen: em(768);
 	margin-top: 32px;
 	width: fit-content;
 
-	color: white;
+	color: #fff;
+	@media (prefers-color-scheme: light) {
+		color: #000;
+	}
 
 	font-family: 'Source Sans Pro', sans-serif;
 	font-weight: 900;
@@ -26,7 +31,12 @@ $maxScreen: em(768);
 	flex-direction: column;
 	width: 100%;
 	padding: 0 5vmin;
-	background-color: $bg-color;
+	border-radius: 0.8rem;
+	background-color: $bg-color-dark;
+
+	@media (prefers-color-scheme: light) {
+		background-color: $bg-color-light;
+	}
 
 	font-family: 'Inconsolata', monospace;
 }
@@ -60,7 +70,7 @@ $maxScreen: em(768);
 		}
 
 		img {
-			background-color: white;
+			background-color: #fff;
 			object-fit: contain;
 			border-radius: 16px;
 		}
@@ -89,8 +99,13 @@ $maxScreen: em(768);
 				$maxSize
 			);
 
+			color: #fff;
+			@media (prefers-color-scheme: light) {
+				color: #000;
+			}
+
 			a {
-				color: white;
+				color: inherit;
 				text-decoration: none;
 				flex-grow: 1;
 
@@ -104,6 +119,10 @@ $maxScreen: em(768);
 				&:hover {
 					color: #00ddaa;
 					text-decoration: underline;
+
+					@media (prefers-color-scheme: light) {
+						color: #00ad85;
+					}
 				}
 			}
 
@@ -114,7 +133,6 @@ $maxScreen: em(768);
 		}
 
 		.sub {
-			color: darken($color: #fff, $amount: 40%);
 			@include fluid-type(
 				font-size,
 				$minScreen,
@@ -123,8 +141,13 @@ $maxScreen: em(768);
 				$maxSize * 0.9
 			);
 
+			color: darken($color: #fff, $amount: 40%);
+			@media (prefers-color-scheme: light) {
+				color: lighten($color: #000, $amount: 40%);
+			}
+
 			a {
-				color: darken($color: #fff, $amount: 40%);
+				color: inherit;
 				text-decoration: none;
 				flex-grow: 1;
 
@@ -142,6 +165,11 @@ $maxScreen: em(768);
 				$minSize * 0.8,
 				$maxSize * 0.8
 			);
+
+			color: darken($color: #fff, $amount: 10%);
+			@media (prefers-color-scheme: light) {
+				color: lighten($color: #000, $amount: 10%);
+			}
 
 			* {
 				white-space: pre-wrap;

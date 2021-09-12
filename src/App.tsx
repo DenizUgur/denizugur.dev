@@ -1,21 +1,36 @@
-import React, { useLayoutEffect, useRef, useState } from 'react';
-import Animate from './lib/meteorshower';
+import React, { useLayoutEffect, useRef } from 'react';
 import styles from './App.module.scss';
-import { CV } from './sections';
+import Animate from './lib/meteorshower';
+import { Home } from './sections';
+import { useMediaPredicate } from 'react-media-hook';
 
 const data = require('./data/meta.json');
 
 function App() {
+	const animate = useRef<null | Animate>(null);
 	const bg = useRef(null);
-	const [contactDrawer, setContactDrawer] = useState(false);
+	const preferredTheme = useMediaPredicate('(prefers-color-scheme: dark)')
+		? 'dark'
+		: 'light';
 
 	useLayoutEffect(() => {
-		new Animate(
-			bg.current,
-			data.background.sky_color,
-			data.background.star_color
-		);
-		Animate.animate();
+		if (animate.current) {
+			Animate.changeColors(
+				data.background[preferredTheme].sky_color,
+				data.background[preferredTheme].star_color
+			);
+		} else {
+			animate.current = new Animate(
+				bg.current,
+				data.background[preferredTheme].sky_color,
+				data.background[preferredTheme].star_color
+			);
+			Animate.animate();
+		}
+		return () => {};
+	}, [preferredTheme]);
+
+	useLayoutEffect(() => {
 		const update = (init: boolean) => {
 			if (!init) Animate.resetCanvas();
 
@@ -25,85 +40,17 @@ function App() {
 		window.addEventListener('resize', () => update(false));
 		window.addEventListener('orientationchange', () => update(false));
 		update(true);
-		return () => {};
+		return () => {
+			window.removeEventListener('resize', () => {});
+			window.removeEventListener('orientationchange', () => {});
+		};
 	}, []);
 
 	return (
 		<>
-			<main>
-				<section className={styles.intro} id="home">
-					<div className={styles.main}>
-						<div className={styles.intro_content}>
-							<div className={styles.header}>
-								<span>Deniz Uğur</span>
-								<div className={styles.icons}>
-									<div>
-										{data.contact.map(
-											(el: any) =>
-												el.priority && (
-													<a
-														href={el.link}
-														key={el.link}
-														target="_blank"
-														rel="noopener noreferrer">
-														<i className={el.icon}></i>
-													</a>
-												)
-										)}
-									</div>
-									<a
-										href="#contact"
-										onClick={() => setContactDrawer(!contactDrawer)}>
-										<i className="fas fa-ellipsis-h"></i>
-									</a>
-								</div>
-							</div>
-							<table className={styles.title}>
-								<tbody>
-									{data.title.map((el: any) => (
-										<tr key={el.text}>
-											<td>
-												<i className={el.icon} />
-											</td>
-											<td>{el.text}</td>
-										</tr>
-									))}
-								</tbody>
-							</table>
-							<div className={styles.contact_details} hidden={!contactDrawer}>
-								<h3>Contact me&#8230;</h3>
-								<table>
-									<tbody>
-										{data.contact.map((el: any) => (
-											<tr key={el.text}>
-												<td>
-													<i className={el.icon} />
-												</td>
-												<td>
-													<a
-														href={el.link}
-														target="_blank"
-														rel="noopener noreferrer">
-														{el.text}
-													</a>
-												</td>
-											</tr>
-										))}
-									</tbody>
-								</table>
-							</div>
-							<p>{data.bio}</p>
-						</div>
-					</div>
-					<a className={styles.more} href="#cv">
-						Learn More
-					</a>
-				</section>
-				<section className={styles.full} id="cv">
-					<CV />
-				</section>
-				<footer>Copyright &#169; 2021, Deniz Ugur</footer>
-			</main>
+			<div className={styles.stage}>
+				<Home />
+			</div>
 			<canvas ref={bg}></canvas>
 		</>
 	);

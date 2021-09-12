@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './CV.module.scss';
 import ReactMarkdown from 'react-markdown';
+
 const data = require('../data/cv.json');
 
 const Default = (props: any) => {
@@ -11,7 +12,7 @@ const Default = (props: any) => {
 				<a href={el.header.link} target="_blank" rel="noopener noreferrer">
 					{el.header.name}
 				</a>
-				<span>
+				<span className={styles.year}>
 					{el.from} {el.to && `- ${el.to}`}
 				</span>
 			</div>
@@ -37,7 +38,7 @@ const Publication = (props: any) => {
 					className={el.header.link ? styles.has_link : ''}>
 					{el.header.title}
 				</a>
-				<span>{el.date}</span>
+				<span className={styles.year}>{el.date}</span>
 			</div>
 			<span className={styles.sub}>
 				{el.position}

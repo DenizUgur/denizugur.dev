@@ -21,7 +21,7 @@ function Star(options) {
 
 Star.prototype.update = function () {
 	// Next point
-	const nx = this.x - Animate.mult(Animate.gyro.x, this.size, Animate.width)
+	const nx = this.x - Animate.mult(Animate.gyro.x, this.size, Animate.width);
 	const ny = this.y + Animate.mult(Animate.gyro.y, this.size, Animate.height);
 
 	if (!(nx < 0 || nx > Animate.width || ny < 0 || ny > Animate.height)) {
@@ -34,16 +34,16 @@ Star.prototype.update = function () {
 	let dy = ny - this.y,
 		dx = nx - this.x,
 		m = dy / dx,
-		b = ny - (m * nx),
-		ang = -Math.atan2(dy, dx) * 180 / Math.PI;
+		b = ny - m * nx,
+		ang = (-Math.atan2(dy, dx) * 180) / Math.PI;
 
-	const getY = (val) => m * val + b;
-	const getX = (val) => (val - b) / m;
+	const getY = val => m * val + b;
+	const getX = val => (val - b) / m;
 
 	if (0 < ang && ang < 90) {
 		if (getY(0) > Animate.height) {
 			this.x = getX(Animate.height);
-			this.y = Animate.height
+			this.y = Animate.height;
 		} else {
 			this.x = 0;
 			this.y = getY(0);
@@ -51,7 +51,7 @@ Star.prototype.update = function () {
 	} else if (90 < ang && ang < 180) {
 		if (getY(Animate.width) > Animate.height) {
 			this.x = getX(Animate.height);
-			this.y = Animate.height
+			this.y = Animate.height;
 		} else {
 			this.x = Animate.width;
 			this.y = getY(Animate.width);
@@ -59,7 +59,7 @@ Star.prototype.update = function () {
 	} else if (-180 < ang && ang < -90) {
 		if (getY(Animate.width) < 0) {
 			this.x = getX(0);
-			this.y = 0
+			this.y = 0;
 		} else {
 			this.x = Animate.width;
 			this.y = getY(Animate.width);
@@ -67,7 +67,7 @@ Star.prototype.update = function () {
 	} else {
 		if (getY(0) < 0) {
 			this.x = getX(0);
-			this.y = 0
+			this.y = 0;
 		} else {
 			this.x = 0;
 			this.y = getY(0);
@@ -119,13 +119,13 @@ class Animate {
 		y: 0,
 		zero: {
 			x: 0,
-			y: 0
+			y: 0,
 		},
-		calibrated: false
+		calibrated: false,
 	};
 	static movement = {
-		acc: 6.50,
-		mouse: 0.0055
+		acc: 6.5,
+		mouse: 0.0055,
 	};
 	static entities = [];
 	static width = window.innerWidth;
@@ -142,41 +142,62 @@ class Animate {
 		Animate.starColor = starColor;
 
 		if (window.DeviceMotionEvent && !matchMedia('(pointer:fine)').matches) {
-			window.addEventListener("devicemotion", function (event) {
-				Animate.gyro.x = -(Math.round(event.accelerationIncludingGravity.x * 10) / 100) * Animate.movement.acc;
-				Animate.gyro.y = -(Math.round(event.accelerationIncludingGravity.y * 10) / 100) * Animate.movement.acc;
+			window.addEventListener(
+				'devicemotion',
+				function (event) {
+					Animate.gyro.x =
+						-(Math.round(event.accelerationIncludingGravity.x * 10) / 100) *
+						Animate.movement.acc;
+					Animate.gyro.y =
+						-(Math.round(event.accelerationIncludingGravity.y * 10) / 100) *
+						Animate.movement.acc;
 
-				if (!Animate.gyro.calibrated) {
-					Animate.gyro.zero.x = Animate.gyro.x;
-					Animate.gyro.zero.y = Animate.gyro.y;
-					Animate.gyro.calibrated = true;
-				}
+					if (!Animate.gyro.calibrated) {
+						Animate.gyro.zero.x = Animate.gyro.x;
+						Animate.gyro.zero.y = Animate.gyro.y;
+						Animate.gyro.calibrated = true;
+					}
 
-				// Calibrating
-				Animate.gyro.x = Animate.gyro.x < Animate.gyro.zero.x ? -1 * Math.abs(Animate.gyro.x - Animate.gyro.zero.x) : Math.abs(Animate.gyro.x - Animate.gyro.zero.x);
-				Animate.gyro.y = Animate.gyro.y < Animate.gyro.zero.y ? -1 * Math.abs(Animate.gyro.y - Animate.gyro.zero.y) : Math.abs(Animate.gyro.y - Animate.gyro.zero.y);
+					// Calibrating
+					Animate.gyro.x =
+						Animate.gyro.x < Animate.gyro.zero.x
+							? -1 * Math.abs(Animate.gyro.x - Animate.gyro.zero.x)
+							: Math.abs(Animate.gyro.x - Animate.gyro.zero.x);
+					Animate.gyro.y =
+						Animate.gyro.y < Animate.gyro.zero.y
+							? -1 * Math.abs(Animate.gyro.y - Animate.gyro.zero.y)
+							: Math.abs(Animate.gyro.y - Animate.gyro.zero.y);
 
-				// Landscape fix
-				if (window.innerWidth > window.innerHeight) {
-					var tmp = Animate.gyro.x;
-					Animate.gyro.x = Animate.gyro.y;
-					Animate.gyro.y = tmp;
-				}
-			}, false);
+					// Landscape fix
+					if (window.innerWidth > window.innerHeight) {
+						var tmp = Animate.gyro.x;
+						Animate.gyro.x = Animate.gyro.y;
+						Animate.gyro.y = tmp;
+					}
+				},
+				false
+			);
 		} else {
-			window.addEventListener("mousemove", function (event) {
-				Animate.gyro.x = (event.clientX - (window.innerWidth / 2)) * Animate.movement.mouse;
-				Animate.gyro.y = ((window.innerHeight / 2) - event.clientY) * Animate.movement.mouse;
+			window.addEventListener('mousemove', function (event) {
+				Animate.gyro.x =
+					(event.clientX - window.innerWidth / 2) * Animate.movement.mouse;
+				Animate.gyro.y =
+					(window.innerHeight / 2 - event.clientY) * Animate.movement.mouse;
 			});
 		}
 
-		Animate.bgCtx = target.getContext("2d");
+		Animate.bgCtx = target.getContext('2d');
 
 		// init the canvas
 		Animate.resetCanvas();
 
-		// init the stars 
+		// init the stars
 		Animate.initStars();
+	}
+
+	static changeColors(bgColor, starColor) {
+		Animate.bgColor = bgColor;
+		Animate.starColor = starColor;
 	}
 
 	static resetCanvas() {
@@ -198,10 +219,12 @@ class Animate {
 	static initStars() {
 		Animate.entities = [];
 		for (var i = 0; i < Animate.height; i++) {
-			Animate.entities.push(new Star({
-				x: Math.random() * Animate.width,
-				y: Math.random() * Animate.height
-			}));
+			Animate.entities.push(
+				new Star({
+					x: Math.random() * Animate.width,
+					y: Math.random() * Animate.height,
+				})
+			);
 		}
 
 		// Add 4 shooting stars that just start the cycle.
@@ -211,9 +234,9 @@ class Animate {
 	}
 
 	static mult(val, size, lim) {
-		var mult = ((Math.abs(val) * 6 / 8) + 2);
+		var mult = (Math.abs(val) * 6) / 8 + 2;
 		mult = mult < 6 ? mult : 5.99;
-		mult = val * (size / 2) * mult / Math.log10(lim);
+		mult = (val * (size / 2) * mult) / Math.log10(lim);
 		if (mult < 0.08 && mult > -0.08) mult = 0.08 * Math.sign(mult);
 		return mult;
 	}
