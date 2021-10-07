@@ -11,9 +11,9 @@ $maxScreen: em(768);
 	width: fit-content;
 
 	color: #fff;
-	@media (prefers-color-scheme: light) {
-		color: #000;
-	}
+	// @media (prefers-color-scheme: light) {
+	// 	color: #000;
+	// }
 
 	font-family: 'Source Sans Pro', sans-serif;
 	font-weight: 900;
@@ -34,9 +34,9 @@ $maxScreen: em(768);
 	border-radius: 0.8rem;
 	background-color: $bg-color-dark;
 
-	@media (prefers-color-scheme: light) {
-		background-color: $bg-color-light;
-	}
+	// @media (prefers-color-scheme: light) {
+	// 	background-color: $bg-color-light;
+	// }
 
 	font-family: 'Inconsolata', monospace;
 }
@@ -100,9 +100,9 @@ $maxScreen: em(768);
 			);
 
 			color: #fff;
-			@media (prefers-color-scheme: light) {
-				color: #000;
-			}
+			// @media (prefers-color-scheme: light) {
+			// 	color: #000;
+			// }
 
 			a {
 				color: inherit;
@@ -120,9 +120,9 @@ $maxScreen: em(768);
 					color: #00ddaa;
 					text-decoration: underline;
 
-					@media (prefers-color-scheme: light) {
-						color: #00ad85;
-					}
+					// @media (prefers-color-scheme: light) {
+					// 	color: #00ad85;
+					// }
 				}
 			}
 
@@ -142,9 +142,9 @@ $maxScreen: em(768);
 			);
 
 			color: darken($color: #fff, $amount: 40%);
-			@media (prefers-color-scheme: light) {
-				color: lighten($color: #000, $amount: 40%);
-			}
+			// @media (prefers-color-scheme: light) {
+			// 	color: lighten($color: #000, $amount: 40%);
+			// }
 
 			a {
 				color: inherit;
@@ -167,9 +167,9 @@ $maxScreen: em(768);
 			);
 
 			color: darken($color: #fff, $amount: 10%);
-			@media (prefers-color-scheme: light) {
-				color: lighten($color: #000, $amount: 10%);
-			}
+			// @media (prefers-color-scheme: light) {
+			// 	color: lighten($color: #000, $amount: 10%);
+			// }
 
 			* {
 				white-space: pre-wrap;

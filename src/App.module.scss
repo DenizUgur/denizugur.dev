@@ -86,9 +86,9 @@ canvas {
 			border-radius: 100%;
 			border: 0.2em solid white;
 
-			@media (prefers-color-scheme: light) {
-				border-color: #000;
-			}
+			// @media (prefers-color-scheme: light) {
+			// 	border-color: #000;
+			// }
 
 			// Size
 			width: 20vmin;
@@ -126,10 +126,10 @@ canvas {
 	color: #fff;
 	background-color: $bg-color-dark;
 
-	@media (prefers-color-scheme: light) {
-		color: #000;
-		background-color: $bg-color-light;
-	}
+	// @media (prefers-color-scheme: light) {
+	// 	color: #000;
+	// 	background-color: $bg-color-light;
+	// }
 }
 
 .main .header {
@@ -188,15 +188,15 @@ canvas {
 				border-color: #fff;
 			}
 
-			@media (prefers-color-scheme: light) {
-				border-color: #00000080;
-				color: #00000080;
+			// @media (prefers-color-scheme: light) {
+			// 	border-color: #00000080;
+			// 	color: #00000080;
 
-				&:hover {
-					color: #000;
-					border-color: #000;
-				}
-			}
+			// 	&:hover {
+			// 		color: #000;
+			// 		border-color: #000;
+			// 	}
+			// }
 		}
 
 		@media (max-height: 418px) and (orientation: landscape) {
@@ -238,9 +238,9 @@ canvas {
 	// Colors
 	color: #888;
 
-	@media (prefers-color-scheme: light) {
-		color: #00000080;
-	}
+	// @media (prefers-color-scheme: light) {
+	// 	color: #00000080;
+	// }
 }
 
 .main p {

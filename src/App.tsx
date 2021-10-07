@@ -2,16 +2,17 @@ import React, { useLayoutEffect, useRef } from 'react';
 import styles from './App.module.scss';
 import Animate from './lib/meteorshower';
 import { Home } from './sections';
-import { useMediaPredicate } from 'react-media-hook';
+// import { useMediaPredicate } from 'react-media-hook';
 
 const data = require('./data/meta.json');
 
 function App() {
 	const animate = useRef<null | Animate>(null);
 	const bg = useRef(null);
-	const preferredTheme = useMediaPredicate('(prefers-color-scheme: dark)')
-		? 'dark'
-		: 'light';
+	// const preferredTheme = useMediaPredicate('(prefers-color-scheme: dark)')
+	// 	? 'dark'
+	// 	: 'light';
+	const preferredTheme = 'dark';
 
 	useLayoutEffect(() => {
 		if (animate.current) {
