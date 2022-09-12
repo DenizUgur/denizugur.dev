@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/static/css/main.305c0645.chunk.css",
-    "main.js": "/static/js/main.8d4c8c27.chunk.js",
-    "main.js.map": "/static/js/main.8d4c8c27.chunk.js.map",
+    "main.js": "/static/js/main.82ba15ed.chunk.js",
+    "main.js.map": "/static/js/main.82ba15ed.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.f7510d84.js",
     "runtime-main.js.map": "/static/js/runtime-main.f7510d84.js.map",
     "static/js/2.092d5d67.chunk.js": "/static/js/2.092d5d67.chunk.js",
@@ -11,6 +11,7 @@
     "static/css/main.305c0645.chunk.css.map": "/static/css/main.305c0645.chunk.css.map",
     "static/js/2.092d5d67.chunk.js.LICENSE.txt": "/static/js/2.092d5d67.chunk.js.LICENSE.txt",
     "static/media/CASE21.jpg": "/static/media/CASE21.105d6ea9.jpg",
+    "static/media/MIPR22.png": "/static/media/MIPR22.422a4f58.png",
     "static/media/arrow.svg": "/static/media/arrow.1cb7a38f.svg",
     "static/media/google-scholar.svg": "/static/media/google-scholar.d5f612f2.svg",
     "static/media/mmsys21-caap.jpg": "/static/media/mmsys21-caap.aa28ce28.jpg",
@@ -23,6 +24,6 @@
     "static/js/runtime-main.f7510d84.js",
     "static/js/2.092d5d67.chunk.js",
     "static/css/main.305c0645.chunk.css",
-    "static/js/main.8d4c8c27.chunk.js"
+    "static/js/main.82ba15ed.chunk.js"
   ]
 }
