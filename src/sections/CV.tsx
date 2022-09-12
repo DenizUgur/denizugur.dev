@@ -1,8 +1,8 @@
-import React from 'react';
-import styles from './CV.module.scss';
-import ReactMarkdown from 'react-markdown';
+import React from "react";
+import styles from "./CV.module.scss";
+import ReactMarkdown from "react-markdown";
 
-const data = require('../data/cv.json');
+const data = require("../data/cv.json");
 
 const Default = (props: any) => {
 	const { el } = props;
@@ -35,7 +35,7 @@ const Publication = (props: any) => {
 					href={el.header.link}
 					target="_blank"
 					rel="noopener noreferrer"
-					className={el.header.link ? styles.has_link : ''}>
+					className={el.header.link ? styles.has_link : ""}>
 					{el.header.title}
 				</a>
 				<span className={styles.year}>{el.date}</span>
@@ -65,7 +65,7 @@ const Publication = (props: any) => {
 export default function CV() {
 	const getComponent = (key: string, el: any) => {
 		switch (key) {
-			case 'publications':
+			case "publications":
 				return <Publication el={el} />;
 			default:
 				return <Default el={el} />;

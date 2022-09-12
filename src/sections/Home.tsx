@@ -1,15 +1,15 @@
-import React, { useState } from 'react';
-import styles from '../App.module.scss';
-import { CV } from '.';
+import React, { useState } from "react";
+import styles from "../App.module.scss";
+import { CV } from ".";
 
-const data = require('../data/meta.json');
+const data = require("../data/meta.json");
 
 export default function Home() {
 	const [contactDrawer, setContactDrawer] = useState(false);
 	return (
 		<main>
 			<section className={styles.intro} id="home">
-				<div className={[styles.main, styles.with_pp].join(' ')}>
+				<div className={[styles.main, styles.with_pp].join(" ")}>
 					<div className={styles.intro_content}>
 						<div className={styles.header}>
 							<span>Deniz Uğur</span>
@@ -73,7 +73,7 @@ export default function Home() {
 					</div>
 				</div>
 				<div className={styles.nav_buttons}>
-					<div onClick={() => document.getElementById('cv')?.scrollIntoView()}>
+					<div onClick={() => document.getElementById("cv")?.scrollIntoView()}>
 						Learn More
 					</div>
 				</div>

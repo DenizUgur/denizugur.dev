@@ -1,6 +1,5 @@
-@import url('//fonts.googleapis.com/css2?family=Source+Sans+Pro:300,900&display=swap');
-@import url('//fonts.googleapis.com/css2?family=Inconsolata&display=swap');
-@import './mixins/fluid';
+@import url("https://fonts.googleapis.com/css2?family=Inconsolata&family=Source+Sans+Pro:wght@300;900&display=swap");
+@import "./mixins/fluid";
 
 $bg-color-dark: rgba(0, 0, 15, 0.9);
 $bg-color-light: #eee;
@@ -77,8 +76,8 @@ canvas {
 	&.with_pp {
 		&::before {
 			// Content
-			content: '';
-			background-image: url('img/pp.jpg');
+			content: "";
+			background-image: url("img/pp.jpg");
 			background-position: center center;
 			background-size: contain;
 
@@ -115,7 +114,7 @@ canvas {
 	padding: 1vmax 1vmin;
 	border-radius: 0.8rem;
 
-	font-family: 'Inconsolata', monospace;
+	font-family: "Inconsolata", monospace;
 
 	@media only screen and (min-width: 418px) {
 		// Layout
@@ -140,7 +139,7 @@ canvas {
 		flex: 1;
 		font-weight: 900;
 		letter-spacing: -0.035em;
-		font-family: 'Source Sans Pro', sans-serif;
+		font-family: "Source Sans Pro", sans-serif;
 		@include fluid-type(font-size, $minScreen, $maxScreen, 1.3rem, 3rem);
 	}
 
@@ -297,9 +296,9 @@ canvas {
 			left: 50%;
 			bottom: 40%;
 			margin: 0 0 0 -0.75em;
-			content: '';
+			content: "";
 
-			background-image: url('img/arrow.svg');
+			background-image: url("img/arrow.svg");
 			background-position: center;
 			background-repeat: no-repeat;
 			background-size: contain;
@@ -327,7 +326,7 @@ section.full {
 }
 
 footer {
-	font-family: 'Inconsolata', monospace;
+	font-family: "Inconsolata", monospace;
 	color: white;
 	text-align: center;
 	padding: 5vh 0;
