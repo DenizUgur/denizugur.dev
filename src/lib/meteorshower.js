@@ -141,9 +141,9 @@ class Animate {
 		Animate.bgColor = bgColor;
 		Animate.starColor = starColor;
 
-		if (window.DeviceMotionEvent && !matchMedia('(pointer:fine)').matches) {
+		if (window.DeviceMotionEvent && !matchMedia("(pointer:fine)").matches) {
 			window.addEventListener(
-				'devicemotion',
+				"devicemotion",
 				function (event) {
 					Animate.gyro.x =
 						-(Math.round(event.accelerationIncludingGravity.x * 10) / 100) *
@@ -178,7 +178,7 @@ class Animate {
 				false
 			);
 		} else {
-			window.addEventListener('mousemove', function (event) {
+			window.addEventListener("mousemove", function (event) {
 				Animate.gyro.x =
 					(event.clientX - window.innerWidth / 2) * Animate.movement.mouse;
 				Animate.gyro.y =
@@ -186,7 +186,7 @@ class Animate {
 			});
 		}
 
-		Animate.bgCtx = target.getContext('2d');
+		Animate.bgCtx = target.getContext("2d");
 
 		// init the canvas
 		Animate.resetCanvas();

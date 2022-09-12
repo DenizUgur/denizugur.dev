@@ -1,4 +1,4 @@
-@import '../mixins/fluid';
+@import "../mixins/fluid";
 
 $bg-color-dark: rgba(0, 0, 15, 0.9);
 $bg-color-light: #eee;
@@ -15,14 +15,14 @@ $maxScreen: em(768);
 	// 	color: #000;
 	// }
 
-	font-family: 'Source Sans Pro', sans-serif;
+	font-family: "Source Sans Pro", sans-serif;
 	font-weight: 900;
 	text-transform: capitalize;
 
 	@include fluid-type(font-size, $minScreen, $maxScreen, 1em, 1.2em);
 
 	&::before {
-		content: '\02E7  ';
+		content: "\02E7  ";
 	}
 }
 
@@ -38,7 +38,7 @@ $maxScreen: em(768);
 	// 	background-color: $bg-color-light;
 	// }
 
-	font-family: 'Inconsolata', monospace;
+	font-family: "Inconsolata", monospace;
 }
 
 .item {
